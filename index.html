@@ -1,1 +1,583 @@
-<html><body>Ladataan...</body></html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Rekrymainonta nyt</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #FDFBF3;
+    --surface: #FFFFFF;
+    --text: #221B46;
+    --text-muted: #6B6285;
+    --accent: #952271;
+    --accent-strong: #7A1B5C;
+    --accent-soft: #EAD3E3;
+    --accent-mid: #CC95BB;
+    --border: #E6DCE7;
+    --lavender: #AD9CC0;
+    --shadow: rgba(34, 27, 70, 0.08);
+    --good: #2E7D46;
+    --good-soft: #E1F0E5;
+    --bad: #B23B3B;
+    --bad-soft: #F6E1DF;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171129;
+      --surface: #221B46;
+      --text: #FDFBF3;
+      --text-muted: #C3B8DC;
+      --accent: #E2A8CC;
+      --accent-strong: #F0C4DE;
+      --accent-soft: #362B5C;
+      --accent-mid: #4A3C74;
+      --border: #372C5C;
+      --lavender: #AD9CC0;
+      --shadow: rgba(0, 0, 0, 0.35);
+      --good: #7CD9A0;
+      --good-soft: #223B2C;
+      --bad: #F0A0A0;
+      --bad-soft: #3E2422;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #171129;
+    --surface: #221B46;
+    --text: #FDFBF3;
+    --text-muted: #C3B8DC;
+    --accent: #E2A8CC;
+    --accent-strong: #F0C4DE;
+    --accent-soft: #362B5C;
+    --accent-mid: #4A3C74;
+    --border: #372C5C;
+    --lavender: #AD9CC0;
+    --shadow: rgba(0, 0, 0, 0.35);
+    --good: #7CD9A0;
+    --good-soft: #223B2C;
+    --bad: #F0A0A0;
+    --bad-soft: #3E2422;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', Calibri, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 24px 64px;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand img {
+    height: 34px;
+    width: auto;
+    display: block;
+  }
+
+  .brand-divider {
+    width: 1px;
+    height: 28px;
+    background: var(--border);
+  }
+
+  .brand-mark {
+    font-family: 'Poppins', Calibri, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+  }
+
+  .brand-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+  }
+
+  .updated-pill {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 7px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .updated-pill strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    line-height: 1.15;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+
+  .lede {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 62ch;
+    margin: 0 0 32px;
+    line-height: 1.55;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .stat-tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 22px;
+    min-width: 150px;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+
+  .stat-tile .num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .stat-tile .label {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-top: 6px;
+    font-weight: 600;
+  }
+
+  .section-label {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 22px 20px;
+    box-shadow: 0 1px 3px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .card .eyebrow {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .card h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.22rem;
+    line-height: 1.28;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .card .meta-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 0.86rem;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+
+  .card .meta-row .k {
+    color: var(--text-muted);
+  }
+
+  .card .meta-row .v {
+    font-weight: 500;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    white-space: nowrap;
+  }
+
+  .badge.urgent {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  .ctr-cell {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  .ctr-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .ctr-flag .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex: none;
+  }
+
+  .ctr-flag.good {
+    background: var(--good-soft);
+    color: var(--good);
+  }
+
+  .ctr-flag.good .dot { background: var(--good); }
+
+  .ctr-flag.bad {
+    background: var(--bad-soft);
+    color: var(--bad);
+  }
+
+  .ctr-flag.bad .dot { background: var(--bad); }
+
+  .ctr-flag.mid {
+    background: var(--accent-soft);
+    color: var(--text-muted);
+  }
+
+  .ctr-flag.mid .dot { background: var(--text-muted); }
+
+  .empty-state {
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 16px;
+    padding: 48px 24px;
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 22px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  footer p { margin: 0 0 8px; }
+  footer strong { color: var(--text); }
+
+  @media (max-width: 520px) {
+    .wrap { padding: 28px 16px 48px; }
+    header { align-items: flex-start; }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="brand-mark">SOLO HEALTH</div>
+      <div class="brand-divider"></div>
+      <div class="brand-title">Rekrytoinnin markkinointi</div>
+    </div>
+    <div class="updated-pill">Päivitetty <strong id="updated-at">–</strong></div>
+  </header>
+
+  <h1>Mitä työpaikkoja mainostetaan juuri nyt</h1>
+  <p class="lede">Kooste Solo Healthin Meta-mainostilin (Facebook &amp; Instagram) tällä hetkellä aikataulunsa sisällä olevista rekrytointimainoksista. Tarkoitettu liiketoimintajohtajille nopeaksi tilannekuvaksi — ei korvaa Ads Manageria.</p>
+
+  <div class="stat-row" id="stat-row"></div>
+
+  <div class="section-label">Käynnissä olevat mainokset</div>
+  <div class="grid" id="grid"></div>
+  <div class="empty-state" id="empty-state" hidden>Ei tällä hetkellä yhtään aikataulunsa sisällä olevaa rekrymainosta mainostilillä.</div>
+
+  <footer>
+    <p><strong>Miten luku muodostuu:</strong> mukaan lasketaan vain mainosjoukot, joiden oma aikataulu (alkaa–päättyy) on juuri nyt voimassa — pelkkä Metan "aktiivinen"-merkintä ei riitä, koska se ei aina päivity automaattisesti aikataulun päättyessä.</p>
+    <p><strong>Tulokset:</strong> linkkiklikit, CTR ja kulu ovat kumulatiivisia mainoksen omasta alkupäivästä tähän päivään — sama linkkiklikki-pohjainen mittari jota kuukausiraportissakin käytetään.</p>
+    <p><strong>CTR-vihje:</strong> väri- ja pistemerkintä vertaa mainoksen CTR:ää tällä hetkellä käynnissä olevien mainosten keskiarvoon (<span id="ctr-avg-txt">–</span>). Vihreä = selvästi keskitason yläpuolella, punainen = selvästi alapuolella, harmaa = lähellä keskitasoa.</p>
+    <p>Data haetaan Meta Marketing API:sta ja sivu päivitetään säännöllisesti. Kysy Hemppa Ketolalta jos luvut vaikuttavat vanhentuneilta.</p>
+  </footer>
+</div>
+
+<script id="rekrymainonta-data" type="application/json">{
+  "haettu": "2026-09-09T12:18:00.920073+00:00",
+  "mainostili": "Solo Health",
+  "kaynnissa": [
+    {
+      "tyopaikka": "lastenpsykiatrian-erikoislaakari-lahti",
+      "kampanja": "Erikoislääkärit 2026 (liikenne)",
+      "alkaa": "2026-06-24",
+      "paattyy": "2026-09-10",
+      "kanavat": "Automaattinen sijoittelu",
+      "adset_id": "120247688873510073",
+      "klikkaukset": 341,
+      "ctr": 0.339054,
+      "kulu": 69.63,
+      "impressiot": 100574
+    },
+    {
+      "tyopaikka": "lahihoitaja pohjanmaa – uusinta",
+      "kampanja": "Hoitajat  (Liikenne)",
+      "alkaa": "2026-08-19",
+      "paattyy": "2026-09-20",
+      "kanavat": "Automaattinen sijoittelu",
+      "adset_id": "120249394661940073",
+      "klikkaukset": 1309,
+      "ctr": 3.948956,
+      "kulu": 135.24,
+      "impressiot": 33148
+    },
+    {
+      "tyopaikka": "sairaanhoitaja-pohjanmaa – uusinta",
+      "kampanja": "Hoitajat  (Liikenne)",
+      "alkaa": "2026-08-19",
+      "paattyy": "2026-09-20",
+      "kanavat": "Automaattinen sijoittelu",
+      "adset_id": "120249393286840073",
+      "klikkaukset": 1520,
+      "ctr": 4.339881,
+      "kulu": 140.8,
+      "impressiot": 35024
+    },
+    {
+      "tyopaikka": "yleislaaketieteen-erikoislaakari-harjavalta – uusinta",
+      "kampanja": "Erikoislääkärit 2026-2 (Liikenne)",
+      "alkaa": "2026-09-09",
+      "paattyy": "2026-09-28",
+      "kanavat": "Automaattinen sijoittelu",
+      "adset_id": "120249689899340073",
+      "klikkaukset": 2,
+      "ctr": 2.564103,
+      "kulu": 0.12,
+      "impressiot": 78
+    },
+    {
+      "tyopaikka": "yleislaakari-loimaa-varsinais-suomi",
+      "kampanja": "Yleislääkäri 2026 (Liikenne)",
+      "alkaa": "2026-09-08",
+      "paattyy": "2026-09-30",
+      "kanavat": "Automaattinen sijoittelu",
+      "adset_id": "120249672624890073",
+      "klikkaukset": 30,
+      "ctr": 2.788104,
+      "kulu": 4.33,
+      "impressiot": 1076
+    },
+    {
+      "tyopaikka": "kiirevastaanotot-valtakunnallinen",
+      "kampanja": "Yleislääkäri 2026 (Liikenne)",
+      "alkaa": "2026-09-09",
+      "paattyy": "2026-10-11",
+      "kanavat": "Automaattinen sijoittelu",
+      "adset_id": "120249685707820073",
+      "klikkaukset": 1,
+      "ctr": 3.225806,
+      "kulu": 0.09,
+      "impressiot": 31
+    },
+    {
+      "tyopaikka": "kela-vlk-kuntoutusammattilaiset-uusimaa",
+      "kampanja": "Erikoislääkärit 2026-2 (Liikenne)",
+      "alkaa": "2026-09-04",
+      "paattyy": "2026-10-31",
+      "kanavat": "Automaattinen sijoittelu",
+      "adset_id": "120249621144010073",
+      "klikkaukset": 173,
+      "ctr": 4.224664,
+      "kulu": 18.65,
+      "impressiot": 4095
+    },
+    {
+      "tyopaikka": "yleislaakareita-kouluterveydenhuoltoon-lansi-uusimaa",
+      "kampanja": "Yleislääkäri 2026 (Liikenne)",
+      "alkaa": "2026-08-27",
+      "paattyy": "2026-10-31",
+      "kanavat": "Automaattinen sijoittelu",
+      "adset_id": "120249507956900073",
+      "klikkaukset": 60,
+      "ctr": 1.541624,
+      "kulu": 22.37,
+      "impressiot": 3892
+    }
+  ]
+}</script>
+<script>
+  (function () {
+    var raw = document.getElementById('rekrymainonta-data').textContent;
+    var data = JSON.parse(raw);
+    var items = data.kaynnissa || [];
+
+    function fmtPvm(iso) {
+      if (!iso) return null;
+      var d = new Date(iso + 'T00:00:00');
+      return d.toLocaleDateString('fi-FI', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    function fmtHaettu(iso) {
+      var d = new Date(iso);
+      return d.toLocaleDateString('fi-FI', { day: 'numeric', month: 'long' }) + ' klo ' +
+        d.toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    document.getElementById('updated-at').textContent = fmtHaettu(data.haettu);
+
+    var today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    var soonCount = 0;
+    var klikitYhteensa = 0;
+    var ctrSum = 0;
+    var ctrCount = 0;
+    items.forEach(function (it) {
+      if (it.paattyy) {
+        var end = new Date(it.paattyy + 'T00:00:00');
+        var days = Math.round((end - today) / 86400000);
+        if (days <= 14) soonCount++;
+      }
+      if (typeof it.klikkaukset === 'number') klikitYhteensa += it.klikkaukset;
+      if (typeof it.ctr === 'number') { ctrSum += it.ctr; ctrCount++; }
+    });
+    var ctrAvg = ctrCount > 0 ? (ctrSum / ctrCount) : null;
+    var ctrAvgTxt = (ctrAvg !== null)
+      ? ctrAvg.toLocaleString('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' %'
+      : '–';
+    var ctrAvgEl = document.getElementById('ctr-avg-txt');
+    if (ctrAvgEl) ctrAvgEl.textContent = ctrAvgTxt;
+
+    function ctrFlag(ctr) {
+      if (typeof ctr !== 'number' || ctrAvg === null || ctrCount < 2) return '';
+      var diff = (ctr - ctrAvg) / ctrAvg;
+      var cls = 'mid', label = 'Keskitasoa';
+      if (diff >= 0.15) { cls = 'good'; label = 'Yli keskitason'; }
+      else if (diff <= -0.15) { cls = 'bad'; label = 'Alle keskitason'; }
+      return '<span class="ctr-flag ' + cls + '"><span class="dot"></span>' + label + '</span>';
+    }
+
+    var statRow = document.getElementById('stat-row');
+    var stats = [
+      { num: items.length, label: 'Työpaikkaa mainonnassa' },
+      { num: soonCount, label: 'Päättyy 14 pv sisällä' },
+      { num: klikitYhteensa.toLocaleString('fi-FI'), label: 'Linkkiklikkiä yhteensä' },
+      { num: ctrAvgTxt, label: 'Keskimääräinen CTR' }
+    ];
+    stats.forEach(function (s) {
+      var tile = document.createElement('div');
+      tile.className = 'stat-tile';
+      tile.innerHTML = '<div class="num">' + s.num + '</div><div class="label">' + s.label + '</div>';
+      statRow.appendChild(tile);
+    });
+
+    var grid = document.getElementById('grid');
+    var emptyState = document.getElementById('empty-state');
+
+    if (items.length === 0) {
+      grid.hidden = true;
+      emptyState.hidden = false;
+    } else {
+      items.forEach(function (it) {
+        var card = document.createElement('div');
+        card.className = 'card';
+
+        var badgeHtml = '';
+        if (it.paattyy) {
+          var end = new Date(it.paattyy + 'T00:00:00');
+          var days = Math.round((end - today) / 86400000);
+          var urgent = days <= 14;
+          var label = days <= 0 ? 'Päättyy tänään' : ('Päättyy ' + days + ' pv päästä');
+          badgeHtml = '<span class="badge' + (urgent ? ' urgent' : '') + '">' + label + '</span>';
+        } else {
+          badgeHtml = '<span class="badge">Ei loppupäivää</span>';
+        }
+
+        var klikitTxt = (typeof it.klikkaukset === 'number') ? it.klikkaukset.toLocaleString('fi-FI') : '–';
+        var ctrTxt = (typeof it.ctr === 'number') ? it.ctr.toLocaleString('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' %' : '–';
+        var kuluTxt = (typeof it.kulu === 'number') ? it.kulu.toLocaleString('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €' : '–';
+
+        card.innerHTML =
+          '<div class="eyebrow">' + escapeHtml(it.kampanja || '') + '</div>' +
+          '<h2>' + escapeHtml(it.tyopaikka || '') + '</h2>' +
+          badgeHtml +
+          '<div class="meta-row"><span class="k">Aikataulu</span><span class="v">' +
+            escapeHtml(fmtPvm(it.alkaa) || '–') + ' – ' + escapeHtml(fmtPvm(it.paattyy) || 'toistaiseksi') +
+          '</span></div>' +
+          '<div class="meta-row"><span class="k">Linkkiklikit</span><span class="v">' + klikitTxt + '</span></div>' +
+          '<div class="meta-row"><span class="k">Linkki-CTR</span><span class="v ctr-cell">' + ctrFlag(it.ctr) + '<span>' + ctrTxt + '</span></span></div>' +
+          '<div class="meta-row"><span class="k">Kulu tähän mennessä</span><span class="v">' + kuluTxt + '</span></div>';
+
+        grid.appendChild(card);
+      });
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+  })();
+</script>
