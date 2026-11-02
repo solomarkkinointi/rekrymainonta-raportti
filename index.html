@@ -162,8 +162,9 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 16px 22px;
+    padding: 16px 18px;
     min-width: 150px;
+    flex: 1 1 150px;
     box-shadow: 0 1px 2px var(--shadow);
   }
 
@@ -311,6 +312,45 @@
 
   .ctr-flag.mid .dot { background: var(--text-muted); }
 
+  .card .sub {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-top: -8px;
+  }
+
+  .trend {
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+
+  .trend-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 0.86rem;
+    margin-bottom: 6px;
+  }
+
+  .trend-head .k { color: var(--text-muted); }
+
+  .trend-head .avg {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .trend .line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .trend .avg-line { stroke: var(--accent-mid); stroke-width: 1.5; stroke-dasharray: 4 3; }
+  .trend .pt { fill: var(--surface); stroke: var(--accent); stroke-width: 1.8; }
+  .trend .pt.last { fill: var(--accent); }
+  .trend .axis { fill: var(--text-muted); font-size: 9px; font-family: 'Poppins', Calibri, Arial, sans-serif; }
+  .trend .baseline { stroke: var(--border); stroke-width: 1; }
+  .trend .note { font-size: 0.74rem; color: var(--text-muted); margin-top: 4px; }
+
   .empty-state {
     background: var(--surface);
     border: 1px dashed var(--border);
@@ -360,13 +400,16 @@
   <footer>
     <p><strong>Miten luku muodostuu:</strong> mukaan lasketaan vain mainosjoukot, joiden oma aikataulu (alkaa–päättyy) on juuri nyt voimassa — pelkkä Metan "aktiivinen"-merkintä ei riitä, koska se ei aina päivity automaattisesti aikataulun päättyessä.</p>
     <p><strong>Tulokset:</strong> linkkiklikit, CTR ja kulu ovat kumulatiivisia mainoksen omasta alkupäivästä tähän päivään — sama linkkiklikki-pohjainen mittari jota kuukausiraportissakin käytetään.</p>
+    <p><strong>CTR viime 7 pv:</strong> viiva näyttää mainoksen linkki-CTR:n päivittäin edellisen 7 täyden päivän ajalta (hakupäivä jätetään pois, koska se on vielä kesken). Katkoviiva on saman jakson keskitaso (linkkiklikit ÷ näyttökerrat). Pienillä näyttömäärillä yksittäisen päivän heilahtelu on suurta, joten katso suuntaa, älä yksittäistä pistettä.</p>
     <p><strong>CTR-vihje:</strong> väri- ja pistemerkintä vertaa mainoksen CTR:ää tällä hetkellä käynnissä olevien mainosten keskiarvoon (<span id="ctr-avg-txt">–</span>). Vihreä = selvästi keskitason yläpuolella, punainen = selvästi alapuolella, harmaa = lähellä keskitasoa.</p>
+    <p><strong>Hinta / linkkiklikki:</strong> mainoksen kulu jaettuna linkkiklikeillä alkupäivästä tähän päivään. Vertailukohta on kaikkien käynnissä olevien mainosten yhteenlaskettu kulu ÷ yhteenlasketut linkkiklikit (<span id="cpc-avg-txt">–</span>). Vihreä = selvästi edullisempi, punainen = selvästi kalliimpi.</p>
+    <p><strong>Hakemukset:</strong> Google Analyticsin kirjaamat hakemukset, jotka tulivat mainoksen linkin kautta (tunnistetaan linkin UTM-parametreista), mainoksen alkupäivästä alkaen. Luku on alaraja: hakijat, jotka kieltävät evästeet tai palaavat myöhemmin toisella laitteella, eivät näy. Hinta / hakemus näytetään vasta, kun hakemuksia on vähintään kolme. "Ei seurattavissa" = linkistä puuttuu UTM-tunniste. "Ei eriteltävissä" = usealla mainoksella on sama tunniste.</p>
     <p>Data haetaan Meta Marketing API:sta ja sivu päivitetään säännöllisesti. Kysy Hemppa Ketolalta jos luvut vaikuttavat vanhentuneilta.</p>
   </footer>
 </div>
 
 <script id="rekrymainonta-data" type="application/json">{
-  "haettu": "2026-11-02T06:07:01.591285+00:00",
+  "haettu": "2026-11-02T06:44:01.063658+00:00",
   "mainostili": "Solo Health",
   "kaynnissa": [
     {
@@ -376,10 +419,64 @@
       "paattyy": "2026-11-02",
       "kanavat": "Automaattinen sijoittelu",
       "adset_id": "120250349337350073",
-      "klikkaukset": 1501,
-      "ctr": 0.412775,
-      "kulu": 249.02,
-      "impressiot": 363636
+      "klikkaukset": 1503,
+      "ctr": 0.413047,
+      "kulu": 249.59,
+      "impressiot": 363881,
+      "paivittain": [
+        {
+          "pvm": "2026-10-26",
+          "klikkaukset": 98,
+          "impressiot": 37616,
+          "ctr": 0.260527
+        },
+        {
+          "pvm": "2026-10-27",
+          "klikkaukset": 177,
+          "impressiot": 88254,
+          "ctr": 0.200557
+        },
+        {
+          "pvm": "2026-10-28",
+          "klikkaukset": 149,
+          "impressiot": 45385,
+          "ctr": 0.328302
+        },
+        {
+          "pvm": "2026-10-29",
+          "klikkaukset": 129,
+          "impressiot": 40279,
+          "ctr": 0.320266
+        },
+        {
+          "pvm": "2026-10-30",
+          "klikkaukset": 128,
+          "impressiot": 35615,
+          "ctr": 0.359399
+        },
+        {
+          "pvm": "2026-10-31",
+          "klikkaukset": 150,
+          "impressiot": 13391,
+          "ctr": 1.120155
+        },
+        {
+          "pvm": "2026-11-01",
+          "klikkaukset": 107,
+          "impressiot": 14269,
+          "ctr": 0.749877
+        }
+      ],
+      "utm": [
+        {
+          "mainos": "yleislaakarit-pohjois-pohjanmaa",
+          "utm_campaign": "rekry_pth_yleislaakarit_pohjois_pohjanmaa_202610",
+          "utm_content": "{{site_source_name}}-{{placement}}"
+        }
+      ],
+      "hakemukset": 0,
+      "hakemus_tila": "ok",
+      "hakemus_peruste": "UTM: rekry_pth_yleislaakarit_pohjois_pohjanmaa_202610 / {{site_source_name}}-{{placement}}"
     },
     {
       "tyopaikka": "Omalaakari-ukk-lammin 2 (Liikenne)",
@@ -389,9 +486,45 @@
       "kanavat": "Automaattinen sijoittelu",
       "adset_id": "120250498965320073",
       "klikkaukset": 116,
-      "ctr": 1.076666,
-      "kulu": 41.85,
-      "impressiot": 10774
+      "ctr": 1.071495,
+      "kulu": 42.01,
+      "impressiot": 10826,
+      "paivittain": [
+        {
+          "pvm": "2026-10-29",
+          "klikkaukset": 18,
+          "impressiot": 1998,
+          "ctr": 0.900901
+        },
+        {
+          "pvm": "2026-10-30",
+          "klikkaukset": 21,
+          "impressiot": 1999,
+          "ctr": 1.050525
+        },
+        {
+          "pvm": "2026-10-31",
+          "klikkaukset": 34,
+          "impressiot": 2165,
+          "ctr": 1.570439
+        },
+        {
+          "pvm": "2026-11-01",
+          "klikkaukset": 38,
+          "impressiot": 4061,
+          "ctr": 0.93573
+        }
+      ],
+      "utm": [
+        {
+          "mainos": "Omalaakari-ukk-lammin 1 (Liikenne)",
+          "utm_campaign": "omalaakari-ukk2",
+          "utm_content": "Omalaakari-ukk-lammin 1 (Liikenne)"
+        }
+      ],
+      "hakemukset": 0,
+      "hakemus_tila": "ok",
+      "hakemus_peruste": "UTM: omalaakari-ukk2 / omalaakari-ukk-lammin 1 (liikenne)"
     },
     {
       "tyopaikka": "Omalaakari-ukk-laaja 2 (Liikenne)",
@@ -401,9 +534,45 @@
       "kanavat": "Automaattinen sijoittelu",
       "adset_id": "120250498513810073",
       "klikkaukset": 182,
-      "ctr": 0.713949,
-      "kulu": 58.1,
-      "impressiot": 25492
+      "ctr": 0.71244,
+      "kulu": 58.24,
+      "impressiot": 25546,
+      "paivittain": [
+        {
+          "pvm": "2026-10-29",
+          "klikkaukset": 38,
+          "impressiot": 4679,
+          "ctr": 0.812139
+        },
+        {
+          "pvm": "2026-10-30",
+          "klikkaukset": 42,
+          "impressiot": 6425,
+          "ctr": 0.653697
+        },
+        {
+          "pvm": "2026-10-31",
+          "klikkaukset": 49,
+          "impressiot": 7306,
+          "ctr": 0.670682
+        },
+        {
+          "pvm": "2026-11-01",
+          "klikkaukset": 48,
+          "impressiot": 6251,
+          "ctr": 0.767877
+        }
+      ],
+      "utm": [
+        {
+          "mainos": "Omalaakari-ukk-laaja 2 (Liikenne)",
+          "utm_campaign": "omalaakari-ukk2",
+          "utm_content": "Omalaakari-ukk-laaja 2 (Liikenne)"
+        }
+      ],
+      "hakemukset": 0,
+      "hakemus_tila": "ok",
+      "hakemus_peruste": "UTM: omalaakari-ukk2 / omalaakari-ukk-laaja 2 (liikenne)"
     },
     {
       "tyopaikka": "Omalaakari-ukk-laaja 1 (Liikenne)",
@@ -412,10 +581,64 @@
       "paattyy": "2026-11-05",
       "kanavat": "Automaattinen sijoittelu",
       "adset_id": "120250355884080073",
-      "klikkaukset": 261,
-      "ctr": 2.1966,
-      "kulu": 68.22,
-      "impressiot": 11882
+      "klikkaukset": 262,
+      "ctr": 2.200571,
+      "kulu": 68.58,
+      "impressiot": 11906,
+      "paivittain": [
+        {
+          "pvm": "2026-10-26",
+          "klikkaukset": 0,
+          "impressiot": 0,
+          "ctr": null
+        },
+        {
+          "pvm": "2026-10-27",
+          "klikkaukset": 26,
+          "impressiot": 1366,
+          "ctr": 1.903368
+        },
+        {
+          "pvm": "2026-10-28",
+          "klikkaukset": 47,
+          "impressiot": 1578,
+          "ctr": 2.978454
+        },
+        {
+          "pvm": "2026-10-29",
+          "klikkaukset": 52,
+          "impressiot": 4111,
+          "ctr": 1.264899
+        },
+        {
+          "pvm": "2026-10-30",
+          "klikkaukset": 34,
+          "impressiot": 1260,
+          "ctr": 2.698413
+        },
+        {
+          "pvm": "2026-10-31",
+          "klikkaukset": 57,
+          "impressiot": 1392,
+          "ctr": 4.094828
+        },
+        {
+          "pvm": "2026-11-01",
+          "klikkaukset": 37,
+          "impressiot": 1672,
+          "ctr": 2.212919
+        }
+      ],
+      "utm": [
+        {
+          "mainos": "Omalaakari-ukk-laaja 1 (Liikenne)",
+          "utm_campaign": "omalaakari-ukk",
+          "utm_content": "Omalaakari-ukk-laaja 1 (Liikenne)"
+        }
+      ],
+      "hakemukset": 0,
+      "hakemus_tila": "ok",
+      "hakemus_peruste": "UTM: omalaakari-ukk / omalaakari-ukk-laaja 1 (liikenne)"
     },
     {
       "tyopaikka": "Omalaakari-ukk-lammin 1 (Liikenne)",
@@ -425,9 +648,63 @@
       "kanavat": "Automaattinen sijoittelu",
       "adset_id": "120250355305930073",
       "klikkaukset": 169,
-      "ctr": 2.098076,
-      "kulu": 47.97,
-      "impressiot": 8055
+      "ctr": 2.090808,
+      "kulu": 48.16,
+      "impressiot": 8083,
+      "paivittain": [
+        {
+          "pvm": "2026-10-26",
+          "klikkaukset": 0,
+          "impressiot": 0,
+          "ctr": null
+        },
+        {
+          "pvm": "2026-10-27",
+          "klikkaukset": 24,
+          "impressiot": 806,
+          "ctr": 2.977667
+        },
+        {
+          "pvm": "2026-10-28",
+          "klikkaukset": 29,
+          "impressiot": 1095,
+          "ctr": 2.648402
+        },
+        {
+          "pvm": "2026-10-29",
+          "klikkaukset": 34,
+          "impressiot": 2683,
+          "ctr": 1.267238
+        },
+        {
+          "pvm": "2026-10-30",
+          "klikkaukset": 23,
+          "impressiot": 981,
+          "ctr": 2.344546
+        },
+        {
+          "pvm": "2026-10-31",
+          "klikkaukset": 32,
+          "impressiot": 1088,
+          "ctr": 2.941176
+        },
+        {
+          "pvm": "2026-11-01",
+          "klikkaukset": 19,
+          "impressiot": 1041,
+          "ctr": 1.825168
+        }
+      ],
+      "utm": [
+        {
+          "mainos": "Omalaakari-ukk-lammin 1 (Liikenne)",
+          "utm_campaign": "omalaakari-ukk",
+          "utm_content": "Omalaakari-ukk-lammin 1 (Liikenne)"
+        }
+      ],
+      "hakemukset": 0,
+      "hakemus_tila": "ok",
+      "hakemus_peruste": "UTM: omalaakari-ukk / omalaakari-ukk-lammin 1 (liikenne)"
     },
     {
       "tyopaikka": "omalaakari-varha",
@@ -437,9 +714,63 @@
       "kanavat": "facebook, instagram, threads",
       "adset_id": "120250233925180073",
       "klikkaukset": 960,
-      "ctr": 0.398893,
-      "kulu": 184.7,
-      "impressiot": 240666
+      "ctr": 0.398779,
+      "kulu": 184.98,
+      "impressiot": 240735,
+      "paivittain": [
+        {
+          "pvm": "2026-10-26",
+          "klikkaukset": 58,
+          "impressiot": 39762,
+          "ctr": 0.145868
+        },
+        {
+          "pvm": "2026-10-27",
+          "klikkaukset": 61,
+          "impressiot": 5346,
+          "ctr": 1.14104
+        },
+        {
+          "pvm": "2026-10-28",
+          "klikkaukset": 30,
+          "impressiot": 1409,
+          "ctr": 2.12917
+        },
+        {
+          "pvm": "2026-10-29",
+          "klikkaukset": 40,
+          "impressiot": 2072,
+          "ctr": 1.930502
+        },
+        {
+          "pvm": "2026-10-30",
+          "klikkaukset": 29,
+          "impressiot": 1735,
+          "ctr": 1.67147
+        },
+        {
+          "pvm": "2026-10-31",
+          "klikkaukset": 28,
+          "impressiot": 2153,
+          "ctr": 1.300511
+        },
+        {
+          "pvm": "2026-11-01",
+          "klikkaukset": 31,
+          "impressiot": 2210,
+          "ctr": 1.402715
+        }
+      ],
+      "utm": [
+        {
+          "mainos": "omalaakari-varha",
+          "utm_campaign": null,
+          "utm_content": null
+        }
+      ],
+      "hakemukset": null,
+      "hakemus_tila": "ei_utm",
+      "hakemus_peruste": "Mainoksen linkistä puuttuu UTM-tunniste."
     },
     {
       "tyopaikka": "omalaakari-pohjois-pohjanmaa",
@@ -448,12 +779,55 @@
       "paattyy": "2026-11-30",
       "kanavat": "facebook, instagram, threads",
       "adset_id": "120250476494060073",
-      "klikkaukset": 123,
-      "ctr": 2.093617,
-      "kulu": 32.57,
-      "impressiot": 5875
+      "klikkaukset": 124,
+      "ctr": 2.09071,
+      "kulu": 32.88,
+      "impressiot": 5931,
+      "paivittain": [
+        {
+          "pvm": "2026-10-28",
+          "klikkaukset": 10,
+          "impressiot": 702,
+          "ctr": 1.424501
+        },
+        {
+          "pvm": "2026-10-29",
+          "klikkaukset": 21,
+          "impressiot": 1136,
+          "ctr": 1.848592
+        },
+        {
+          "pvm": "2026-10-30",
+          "klikkaukset": 30,
+          "impressiot": 1184,
+          "ctr": 2.533784
+        },
+        {
+          "pvm": "2026-10-31",
+          "klikkaukset": 25,
+          "impressiot": 1394,
+          "ctr": 1.7934
+        },
+        {
+          "pvm": "2026-11-01",
+          "klikkaukset": 36,
+          "impressiot": 1328,
+          "ctr": 2.710843
+        }
+      ],
+      "utm": [
+        {
+          "mainos": "omalaakari-pohjois-pohjanmaa",
+          "utm_campaign": "omalaakari-pohjois-pohjanmaa",
+          "utm_content": null
+        }
+      ],
+      "hakemukset": 0,
+      "hakemus_tila": "ok",
+      "hakemus_peruste": "UTM: omalaakari-pohjois-pohjanmaa"
     }
-  ]
+  ],
+  "hakemukset_haettu": "2026-11-02T06:44:38.394060+00:00"
 }</script>
 <script>
   (function () {
@@ -482,6 +856,8 @@
     var klikitYhteensa = 0;
     var ctrSum = 0;
     var ctrCount = 0;
+    var cpcKulu = 0, cpcKlikit = 0, cpcCount = 0;
+    var hakSumma = 0, hakSeurattu = 0;
     items.forEach(function (it) {
       if (it.paattyy) {
         var end = new Date(it.paattyy + 'T00:00:00');
@@ -490,11 +866,32 @@
       }
       if (typeof it.klikkaukset === 'number') klikitYhteensa += it.klikkaukset;
       if (typeof it.ctr === 'number') { ctrSum += it.ctr; ctrCount++; }
+      if (it.hakemus_tila === 'ok' && typeof it.hakemukset === 'number') { hakSumma += it.hakemukset; hakSeurattu++; }
+      if (typeof it.kulu === 'number' && typeof it.klikkaukset === 'number' && it.klikkaukset > 0) {
+        cpcKulu += it.kulu; cpcKlikit += it.klikkaukset; cpcCount++;
+      }
     });
     var ctrAvg = ctrCount > 0 ? (ctrSum / ctrCount) : null;
     var ctrAvgTxt = (ctrAvg !== null)
       ? ctrAvg.toLocaleString('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' %'
       : '–';
+    var cpcAvg = cpcKlikit > 0 ? (cpcKulu / cpcKlikit) : null;
+    function fmtEur(v) {
+      return v.toLocaleString('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+    }
+    var cpcAvgTxt = cpcAvg !== null ? fmtEur(cpcAvg) : '–';
+    var cpcAvgEl = document.getElementById('cpc-avg-txt');
+    if (cpcAvgEl) cpcAvgEl.textContent = cpcAvgTxt;
+
+    function cpcFlag(cpc) {
+      if (typeof cpc !== 'number' || cpcAvg === null || cpcCount < 2) return '';
+      var diff = (cpc - cpcAvg) / cpcAvg;
+      var cls = 'mid', label = 'Keskitasoa';
+      if (diff <= -0.15) { cls = 'good'; label = 'Edullinen'; }
+      else if (diff >= 0.15) { cls = 'bad'; label = 'Kallis'; }
+      return '<span class="ctr-flag ' + cls + '"><span class="dot"></span>' + label + '</span>';
+    }
+
     var ctrAvgEl = document.getElementById('ctr-avg-txt');
     if (ctrAvgEl) ctrAvgEl.textContent = ctrAvgTxt;
 
@@ -512,8 +909,10 @@
       { num: items.length, label: 'Työpaikkaa mainonnassa' },
       { num: soonCount, label: 'Päättyy 14 pv sisällä' },
       { num: klikitYhteensa.toLocaleString('fi-FI'), label: 'Linkkiklikkiä yhteensä' },
-      { num: ctrAvgTxt, label: 'Keskimääräinen CTR' }
+      { num: ctrAvgTxt, label: 'Keskimääräinen CTR' },
+      { num: cpcAvgTxt, label: 'Hinta / linkkiklikki' }
     ];
+    if (hakSeurattu > 0) stats.push({ num: hakSumma.toLocaleString('fi-FI'), label: 'Hakemusta (GA4, ' + hakSeurattu + '/' + items.length + ' mainosta)' });
     stats.forEach(function (s) {
       var tile = document.createElement('div');
       tile.className = 'stat-tile';
@@ -546,6 +945,8 @@
         var klikitTxt = (typeof it.klikkaukset === 'number') ? it.klikkaukset.toLocaleString('fi-FI') : '–';
         var ctrTxt = (typeof it.ctr === 'number') ? it.ctr.toLocaleString('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' %' : '–';
         var kuluTxt = (typeof it.kulu === 'number') ? it.kulu.toLocaleString('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €' : '–';
+        var cpc = (typeof it.kulu === 'number' && typeof it.klikkaukset === 'number' && it.klikkaukset > 0) ? it.kulu / it.klikkaukset : null;
+        var cpcTxt = cpc !== null ? fmtEur(cpc) : '–';
 
         card.innerHTML =
           '<div class="eyebrow">' + escapeHtml(it.kampanja || '') + '</div>' +
@@ -556,10 +957,87 @@
           '</span></div>' +
           '<div class="meta-row"><span class="k">Linkkiklikit</span><span class="v">' + klikitTxt + '</span></div>' +
           '<div class="meta-row"><span class="k">Linkki-CTR</span><span class="v ctr-cell">' + ctrFlag(it.ctr) + '<span>' + ctrTxt + '</span></span></div>' +
-          '<div class="meta-row"><span class="k">Kulu tähän mennessä</span><span class="v">' + kuluTxt + '</span></div>';
+          '<div class="sub">Verrattu kaikkiin nyt käynnissä oleviin mainoksiin (ka. ' + ctrAvgTxt + ').</div>' +
+          trendHtml(it.paivittain) +
+          '<div class="meta-row"><span class="k">Kulu tähän mennessä</span><span class="v">' + kuluTxt + '</span></div>' +
+          '<div class="meta-row"><span class="k">Hinta / linkkiklikki</span><span class="v ctr-cell">' + cpcFlag(cpc) + '<span>' + cpcTxt + '</span></span></div>' +
+          '<div class="sub">Kulu ÷ linkkiklikit. Verrattu kaikkien käynnissä olevien keskiarvoon (' + cpcAvgTxt + ').</div>' +
+          hakemusHtml(it);
 
         grid.appendChild(card);
       });
+    }
+
+    function fmtPct(v) {
+      return v.toLocaleString('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' %';
+    }
+
+    function trendHtml(paivat) {
+      if (!Array.isArray(paivat)) return '';
+      var head = '<div class="trend-head"><span class="k">CTR-trendi 7 pv</span>';
+      var pts = paivat.filter(function (p) { return typeof p.ctr === 'number'; });
+      if (pts.length < 2) {
+        return '<div class="trend">' + head + '</div>' +
+          '<div class="note">Liian vähän päiviä trendiin (mainos alkoi hiljattain).</div></div>';
+      }
+      var klik = 0, imp = 0;
+      paivat.forEach(function (p) { klik += p.klikkaukset || 0; imp += p.impressiot || 0; });
+      var avg = imp > 0 ? (klik / imp * 100) : null;
+
+      var W = 260, H = 100, padL = 14, padR = 22, padT = 10, padB = 18;
+      var n = paivat.length;
+      var maxV = Math.max.apply(null, pts.map(function (p) { return p.ctr; }).concat(avg || 0)) * 1.15 || 1;
+      function x(i) { return padL + (n === 1 ? 0 : i * (W - padL - padR) / (n - 1)); }
+      function y(v) { return padT + (1 - v / maxV) * (H - padT - padB); }
+
+      var d = '', pen = false, dots = '';
+      paivat.forEach(function (p, i) {
+        if (typeof p.ctr !== 'number') { pen = false; return; }
+        d += (pen ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(p.ctr).toFixed(1) + ' ';
+        pen = true;
+        var last = (p === pts[pts.length - 1]);
+        dots += '<circle class="pt' + (last ? ' last' : '') + '" cx="' + x(i).toFixed(1) + '" cy="' + y(p.ctr).toFixed(1) + '" r="' + (last ? 3.2 : 2.4) + '"><title>' +
+          fmtPvm(p.pvm) + ': ' + fmtPct(p.ctr) + ' (' + (p.klikkaukset || 0).toLocaleString('fi-FI') + ' klikkiä / ' + (p.impressiot || 0).toLocaleString('fi-FI') + ' näyttöä)</title></circle>';
+      });
+
+      var labels = '';
+      var vk = ['su', 'ma', 'ti', 'ke', 'to', 'pe', 'la'];
+      paivat.forEach(function (p, i) {
+        var dt = new Date(p.pvm + 'T00:00:00');
+        labels += '<text class="axis" x="' + x(i).toFixed(1) + '" y="' + (H - 4) + '" text-anchor="middle">' + vk[dt.getDay()] + ' ' + dt.getDate() + '.</text>';
+      });
+
+      var avgSvg = '';
+      if (avg !== null) {
+        var ay = y(avg).toFixed(1);
+        avgSvg = '<line class="avg-line" x1="' + padL + '" x2="' + (W - padR) + '" y1="' + ay + '" y2="' + ay + '"></line>' +
+          '<text class="axis" x="' + (W - padR + 4) + '" y="' + (parseFloat(ay) + 3) + '">ka.</text>';
+      }
+
+      var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Linkki-CTR päivittäin viimeiseltä 7 päivältä">' +
+        '<line class="baseline" x1="' + padL + '" x2="' + (W - padR) + '" y1="' + y(0).toFixed(1) + '" y2="' + y(0).toFixed(1) + '"></line>' +
+        avgSvg + '<path class="line" d="' + d + '"></path>' + dots + labels + '</svg>';
+
+      return '<div class="trend">' + head +
+        (avg !== null ? '<span class="avg">Keskitaso ' + fmtPct(avg) + '</span>' : '') +
+        '</div>' + svg + '<div class="note">Verrattu tämän mainoksen omiin aiempiin päiviin. Katkoviiva = viikon keskitaso.</div></div>';
+    }
+
+    function hakemusHtml(it) {
+      if (!it.hakemus_tila) return '';
+      if (it.hakemus_tila !== 'ok') {
+        var syy = it.hakemus_tila === 'ei_utm' ? 'Ei seurattavissa' : 'Ei eriteltävissä';
+        return '<div class="meta-row"><span class="k">Hakemukset</span><span class="v">' + syy + '</span></div>' +
+          '<div class="sub">' + escapeHtml(it.hakemus_peruste || '') + '</div>';
+      }
+      var n = it.hakemukset || 0;
+      var konv = (typeof it.klikkaukset === 'number' && it.klikkaukset > 0)
+        ? (n / it.klikkaukset * 100).toLocaleString('fi-FI', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %' : '–';
+      var hinta = (n >= 3 && typeof it.kulu === 'number') ? fmtEur(it.kulu / n) : (n > 0 ? '– (alle 3)' : '–');
+      return '<div class="meta-row"><span class="k">Hakemukset</span><span class="v">' + n.toLocaleString('fi-FI') + '</span></div>' +
+        '<div class="sub">GA4:n kirjaamat, alaraja. Todellinen määrä on suurempi.</div>' +
+        '<div class="meta-row"><span class="k">Klikistä hakemukseen</span><span class="v">' + konv + '</span></div>' +
+        '<div class="meta-row"><span class="k">Hinta / hakemus</span><span class="v">' + hinta + '</span></div>';
     }
 
     function escapeHtml(s) {
