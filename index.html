@@ -371,6 +371,17 @@
     margin-bottom: 40px;
   }
 
+  .google-section {
+    border-top: 1px solid var(--border);
+    padding-top: 36px;
+    margin-top: 8px;
+  }
+  .google-section h2.section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin: 0 0 8px;
+  }
   footer {
     border-top: 1px solid var(--border);
     padding-top: 22px;
@@ -407,6 +418,13 @@
   <div class="grid" id="grid"></div>
   <div class="empty-state" id="empty-state" hidden>Ei tällä hetkellä yhtään aikataulunsa sisällä olevaa rekrymainosta mainostilillä.</div>
 
+  <section class="google-section" id="google-section" hidden>
+    <div class="section-label">Google-hakumainonta</div>
+    <h2 class="section-title">Google-mainonta viimeiset 30 päivää</h2>
+    <p class="lede" id="google-lede"></p>
+    <div class="stat-row" id="google-stats"></div>
+    <div class="grid" id="google-grid"></div>
+  </section>
   <footer>
     <p><strong>Miten luku muodostuu:</strong> mukaan lasketaan vain mainosjoukot, joiden oma aikataulu (alkaa–päättyy) on juuri nyt voimassa — pelkkä Metan "aktiivinen"-merkintä ei riitä, koska se ei aina päivity automaattisesti aikataulun päättyessä.</p>
     <p><strong>Tulokset:</strong> linkkiklikit, CTR ja kulu ovat kumulatiivisia mainoksen omasta alkupäivästä tähän päivään — sama linkkiklikki-pohjainen mittari jota kuukausiraportissakin käytetään.</p>
@@ -414,12 +432,13 @@
     <p><strong>CTR-vihje:</strong> väri- ja pistemerkintä vertaa mainoksen CTR:ää tällä hetkellä käynnissä olevien mainosten keskiarvoon (<span id="ctr-avg-txt">–</span>). Vihreä = selvästi keskitason yläpuolella, punainen = selvästi alapuolella, harmaa = lähellä keskitasoa.</p>
     <p><strong>Hinta / linkkiklikki:</strong> mainoksen kulu jaettuna linkkiklikeillä alkupäivästä tähän päivään. Vertailukohta on kaikkien käynnissä olevien mainosten yhteenlaskettu kulu ÷ yhteenlasketut linkkiklikit (<span id="cpc-avg-txt">–</span>). Vihreä = selvästi edullisempi, punainen = selvästi kalliimpi.</p>
     <p><strong>Hakemukset:</strong> Google Analyticsin kirjaamat hakemukset, jotka tulivat mainoksen linkin kautta (tunnistetaan linkin UTM-parametreista), mainoksen alkupäivästä alkaen. Luku on alaraja: hakijat, jotka kieltävät evästeet tai palaavat myöhemmin toisella laitteella, eivät näy. Hinta / hakemus näytetään vasta, kun hakemuksia on vähintään kolme. "Ei seurattavissa" = linkistä puuttuu UTM-tunniste. "Ei eriteltävissä" = usealla mainoksella on sama tunniste.</p>
+    <p><strong>Google-mainonta:</strong> Solo Health -tilin hakumainonta (työpaikat ja brändi), luvut Google Analyticsin Google Ads -linkityksestä viimeiseltä 30 täydeltä päivältä. Kampanja näytetään, jos sillä on ollut näyttöjä viimeisen 7 päivän aikana. Hakemukset ovat Google-mainoksen kautta tulleita käyntejä, tapahtumailmoitukset poistettu, ja luku on alaraja. Brändihaun hakijat etsivät jo valmiiksi Soloa, joten brändikampanjan hakemuksista ei lasketa hintaa. Google- ja Meta-lukuja ei verrata keskenään: hakumainonnan CTR on luonnostaan moninkertainen.</p>
     <p>Data haetaan Meta Marketing API:sta ja sivu päivitetään säännöllisesti. Kysy Hemppa Ketolalta jos luvut vaikuttavat vanhentuneilta.</p>
   </footer>
 </div>
 
 <script id="rekrymainonta-data" type="application/json">{
-  "haettu": "2026-11-04T06:31:38.317232+00:00",
+  "haettu": "2026-11-05T05:50:16.360786+00:00",
   "mainostili": "Solo Health",
   "kaynnissa": [
     {
@@ -429,10 +448,10 @@
       "paattyy": "2026-11-05",
       "kanavat": "Automaattinen sijoittelu",
       "adset_id": "120250498965320073",
-      "klikkaukset": 188,
-      "ctr": 1.180608,
-      "kulu": 59.26,
-      "impressiot": 15924,
+      "klikkaukset": 217,
+      "ctr": 1.146631,
+      "kulu": 68.65,
+      "impressiot": 18925,
       "paivittain": [
         {
           "pvm": "2026-10-29",
@@ -467,8 +486,14 @@
         {
           "pvm": "2026-11-03",
           "klikkaukset": 33,
-          "impressiot": 2762,
-          "ctr": 1.194786
+          "impressiot": 2764,
+          "ctr": 1.193922
+        },
+        {
+          "pvm": "2026-11-04",
+          "klikkaukset": 31,
+          "impressiot": 2981,
+          "ctr": 1.039919
         }
       ],
       "utm": [
@@ -490,10 +515,10 @@
       "paattyy": "2026-11-05",
       "kanavat": "Automaattinen sijoittelu",
       "adset_id": "120250498513810073",
-      "klikkaukset": 272,
-      "ctr": 0.784155,
-      "kulu": 84.67,
-      "impressiot": 34687,
+      "klikkaukset": 314,
+      "ctr": 0.788192,
+      "kulu": 98.42,
+      "impressiot": 39838,
       "paivittain": [
         {
           "pvm": "2026-10-29",
@@ -530,6 +555,12 @@
           "klikkaukset": 46,
           "impressiot": 3775,
           "ctr": 1.218543
+        },
+        {
+          "pvm": "2026-11-04",
+          "klikkaukset": 42,
+          "impressiot": 5070,
+          "ctr": 0.828402
         }
       ],
       "utm": [
@@ -551,17 +582,11 @@
       "paattyy": "2026-11-05",
       "kanavat": "Automaattinen sijoittelu",
       "adset_id": "120250355884080073",
-      "klikkaukset": 335,
-      "ctr": 2.191404,
-      "kulu": 87.45,
-      "impressiot": 15287,
+      "klikkaukset": 370,
+      "ctr": 2.147667,
+      "kulu": 97.05,
+      "impressiot": 17228,
       "paivittain": [
-        {
-          "pvm": "2026-10-28",
-          "klikkaukset": 47,
-          "impressiot": 1578,
-          "ctr": 2.978454
-        },
         {
           "pvm": "2026-10-29",
           "klikkaukset": 52,
@@ -595,8 +620,14 @@
         {
           "pvm": "2026-11-03",
           "klikkaukset": 40,
-          "impressiot": 2046,
-          "ctr": 1.955034
+          "impressiot": 2050,
+          "ctr": 1.95122
+        },
+        {
+          "pvm": "2026-11-04",
+          "klikkaukset": 36,
+          "impressiot": 1984,
+          "ctr": 1.814516
         }
       ],
       "utm": [
@@ -618,17 +649,11 @@
       "paattyy": "2026-11-05",
       "kanavat": "Automaattinen sijoittelu",
       "adset_id": "120250355305930073",
-      "klikkaukset": 213,
-      "ctr": 2.110792,
-      "kulu": 60.91,
-      "impressiot": 10091,
+      "klikkaukset": 240,
+      "ctr": 2.119954,
+      "kulu": 68.66,
+      "impressiot": 11321,
       "paivittain": [
-        {
-          "pvm": "2026-10-28",
-          "klikkaukset": 29,
-          "impressiot": 1095,
-          "ctr": 2.648402
-        },
         {
           "pvm": "2026-10-29",
           "klikkaukset": 34,
@@ -662,8 +687,14 @@
         {
           "pvm": "2026-11-03",
           "klikkaukset": 25,
-          "impressiot": 1052,
-          "ctr": 2.376426
+          "impressiot": 1053,
+          "ctr": 2.374169
+        },
+        {
+          "pvm": "2026-11-04",
+          "klikkaukset": 26,
+          "impressiot": 1278,
+          "ctr": 2.034429
         }
       ],
       "utm": [
@@ -685,17 +716,11 @@
       "paattyy": "2026-11-15",
       "kanavat": "facebook, instagram, threads",
       "adset_id": "120250233925180073",
-      "klikkaukset": 1024,
-      "ctr": 0.418273,
-      "kulu": 203.17,
-      "impressiot": 244816,
+      "klikkaukset": 1046,
+      "ctr": 0.42451,
+      "kulu": 211.13,
+      "impressiot": 246402,
       "paivittain": [
-        {
-          "pvm": "2026-10-28",
-          "klikkaukset": 30,
-          "impressiot": 1409,
-          "ctr": 2.12917
-        },
         {
           "pvm": "2026-10-29",
           "klikkaukset": 40,
@@ -729,8 +754,14 @@
         {
           "pvm": "2026-11-03",
           "klikkaukset": 35,
-          "impressiot": 1996,
-          "ctr": 1.753507
+          "impressiot": 2000,
+          "ctr": 1.75
+        },
+        {
+          "pvm": "2026-11-04",
+          "klikkaukset": 25,
+          "impressiot": 1700,
+          "ctr": 1.470588
         }
       ],
       "utm": [
@@ -746,74 +777,213 @@
       "hakemus_peruste": "Mainoksen linkistä puuttuu UTM-tunniste."
     },
     {
-      "tyopaikka": "omalaakari-pohjois-pohjanmaa",
+      "tyopaikka": "omalaakari-pirha-lahialueet",
       "kampanja": "Yleislääkäri 2026 (Liikenne)",
-      "alkaa": "2026-10-28",
+      "alkaa": "2026-11-04",
       "paattyy": "2026-11-30",
       "kanavat": "facebook, instagram, threads",
-      "adset_id": "120250476494060073",
-      "klikkaukset": 177,
-      "ctr": 2.091457,
-      "kulu": 45.4,
-      "impressiot": 8463,
+      "adset_id": "120250636756230073",
+      "klikkaukset": 14,
+      "ctr": 1.393035,
+      "kulu": 4.87,
+      "impressiot": 1005,
       "paivittain": [
         {
-          "pvm": "2026-10-28",
-          "klikkaukset": 10,
-          "impressiot": 702,
-          "ctr": 1.424501
-        },
-        {
-          "pvm": "2026-10-29",
-          "klikkaukset": 21,
-          "impressiot": 1136,
-          "ctr": 1.848592
-        },
-        {
-          "pvm": "2026-10-30",
-          "klikkaukset": 30,
-          "impressiot": 1184,
-          "ctr": 2.533784
-        },
-        {
-          "pvm": "2026-10-31",
-          "klikkaukset": 25,
-          "impressiot": 1394,
-          "ctr": 1.7934
-        },
-        {
-          "pvm": "2026-11-01",
-          "klikkaukset": 36,
-          "impressiot": 1328,
-          "ctr": 2.710843
-        },
-        {
-          "pvm": "2026-11-02",
-          "klikkaukset": 23,
-          "impressiot": 1164,
-          "ctr": 1.975945
-        },
-        {
-          "pvm": "2026-11-03",
-          "klikkaukset": 29,
-          "impressiot": 1374,
-          "ctr": 2.110626
+          "pvm": "2026-11-04",
+          "klikkaukset": 14,
+          "impressiot": 802,
+          "ctr": 1.745636
         }
       ],
       "utm": [
         {
-          "mainos": "omalaakari-pohjois-pohjanmaa",
-          "utm_campaign": "omalaakari-pohjois-pohjanmaa",
-          "utm_content": null
+          "mainos": "omalaakari-pirha-lahialueet",
+          "utm_campaign": "rekry_pth_omalaakari_pirha_202611",
+          "utm_content": "omalaakari-pirha-lahialueet"
         }
       ],
-      "kuva": "kuvat/120250476494060073.jpg",
+      "kuva": "kuvat/120250636756230073.jpg",
       "hakemukset": 0,
       "hakemus_tila": "ok",
-      "hakemus_peruste": "UTM: omalaakari-pohjois-pohjanmaa"
+      "hakemus_peruste": "UTM: rekry_pth_omalaakari_pirha_202611 / omalaakari-pirha-lahialueet"
+    },
+    {
+      "tyopaikka": "omalaakari-etela-karjala-laaja",
+      "kampanja": "Yleislääkäri 2026 (Liikenne)",
+      "alkaa": "2026-11-04",
+      "paattyy": "2026-11-30",
+      "kanavat": "facebook, instagram, threads",
+      "adset_id": "120250634587480073",
+      "klikkaukset": 21,
+      "ctr": 1.399067,
+      "kulu": 7.57,
+      "impressiot": 1501,
+      "paivittain": [
+        {
+          "pvm": "2026-11-04",
+          "klikkaukset": 13,
+          "impressiot": 1154,
+          "ctr": 1.126516
+        }
+      ],
+      "utm": [
+        {
+          "mainos": "omalaakari-etela-karjala",
+          "utm_campaign": "rekry_pth_omalaakari_etela_karjala_202611",
+          "utm_content": "omalaakari-etela-karjala-laaja"
+        }
+      ],
+      "kuva": "kuvat/120250634587480073.jpg",
+      "hakemukset": 0,
+      "hakemus_tila": "ok",
+      "hakemus_peruste": "UTM: rekry_pth_omalaakari_etela_karjala_202611 / omalaakari-etela-karjala-laaja"
+    },
+    {
+      "tyopaikka": "omalaakari-vuosaari",
+      "kampanja": "Yleislääkäri 2026 (Liikenne)",
+      "alkaa": "2026-11-04",
+      "paattyy": "2026-11-30",
+      "kanavat": "Automaattinen sijoittelu",
+      "adset_id": "120250634257750073",
+      "klikkaukset": 33,
+      "ctr": 2.752294,
+      "kulu": 7.68,
+      "impressiot": 1199,
+      "paivittain": [
+        {
+          "pvm": "2026-11-04",
+          "klikkaukset": 29,
+          "impressiot": 1032,
+          "ctr": 2.810078
+        }
+      ],
+      "utm": [
+        {
+          "mainos": "omalaakari-vuosaari",
+          "utm_campaign": "rekry_pth_omalaakari_vuosaari_202610",
+          "utm_content": "{{site_source_name}}-{{placement}}"
+        }
+      ],
+      "kuva": "kuvat/120250634257750073.jpg",
+      "hakemukset": 0,
+      "hakemus_tila": "ok",
+      "hakemus_peruste": "UTM: rekry_pth_omalaakari_vuosaari_202610 / {{site_source_name}}-{{placement}}"
     }
   ],
-  "hakemukset_haettu": "2026-11-04T06:32:30.300052+00:00"
+  "hakemukset_haettu": "2026-11-05T05:51:10.364032+00:00",
+  "google": {
+    "haettu": "2026-11-05T05:51:13.177516+00:00",
+    "jakso_alku": "2026-10-06",
+    "jakso_loppu": "2026-11-04",
+    "kampanjat": [
+      {
+        "kampanja": "Työpaikat | Lääkäri",
+        "tyyppi": "tyopaikat",
+        "kulu": 287.86,
+        "impressiot": 3696,
+        "klikkaukset": 201,
+        "ctr": 5.44,
+        "hakemukset": 2,
+        "paivittain": [
+          {
+            "pvm": "2026-10-29",
+            "impressiot": 198,
+            "klikkaukset": 6,
+            "ctr": 3.03
+          },
+          {
+            "pvm": "2026-10-30",
+            "impressiot": 166,
+            "klikkaukset": 8,
+            "ctr": 4.82
+          },
+          {
+            "pvm": "2026-10-31",
+            "impressiot": 41,
+            "klikkaukset": 3,
+            "ctr": 7.32
+          },
+          {
+            "pvm": "2026-11-01",
+            "impressiot": 84,
+            "klikkaukset": 4,
+            "ctr": 4.76
+          },
+          {
+            "pvm": "2026-11-02",
+            "impressiot": 31,
+            "klikkaukset": 4,
+            "ctr": 12.9
+          },
+          {
+            "pvm": "2026-11-03",
+            "impressiot": 52,
+            "klikkaukset": 6,
+            "ctr": 11.54
+          },
+          {
+            "pvm": "2026-11-04",
+            "impressiot": 12,
+            "klikkaukset": 3,
+            "ctr": 25.0
+          }
+        ]
+      },
+      {
+        "kampanja": "Brändi | Solo Health",
+        "tyyppi": "brandi",
+        "kulu": 18.13,
+        "impressiot": 1164,
+        "klikkaukset": 379,
+        "ctr": 32.56,
+        "hakemukset": 6,
+        "paivittain": [
+          {
+            "pvm": "2026-10-29",
+            "impressiot": 22,
+            "klikkaukset": 10,
+            "ctr": 45.45
+          },
+          {
+            "pvm": "2026-10-30",
+            "impressiot": 47,
+            "klikkaukset": 15,
+            "ctr": 31.91
+          },
+          {
+            "pvm": "2026-10-31",
+            "impressiot": 22,
+            "klikkaukset": 10,
+            "ctr": 45.45
+          },
+          {
+            "pvm": "2026-11-01",
+            "impressiot": 16,
+            "klikkaukset": 6,
+            "ctr": 37.5
+          },
+          {
+            "pvm": "2026-11-02",
+            "impressiot": 47,
+            "klikkaukset": 17,
+            "ctr": 36.17
+          },
+          {
+            "pvm": "2026-11-03",
+            "impressiot": 78,
+            "klikkaukset": 26,
+            "ctr": 33.33
+          },
+          {
+            "pvm": "2026-11-04",
+            "impressiot": 65,
+            "klikkaukset": 23,
+            "ctr": 35.38
+          }
+        ]
+      }
+    ]
+  }
 }</script>
 <script>
   (function () {
@@ -954,6 +1124,71 @@
         grid.appendChild(card);
       });
     }
+
+    // ---- Google-mainonta (Solo Health -tili) ----
+    (function renderGoogle() {
+      var g = data.google;
+      if (!g || !Array.isArray(g.kampanjat)) return;
+      var sec = document.getElementById('google-section');
+      sec.hidden = false;
+      var gl = document.getElementById('google-lede');
+      var camps = g.kampanjat;
+      gl.textContent = 'Jakso ' + fmtPvm(g.jakso_alku) + ' – ' + fmtPvm(g.jakso_loppu) +
+        '. Mukana kampanjat, joilla on ollut näyttöjä viimeisen 7 päivän aikana.';
+      var gStats = document.getElementById('google-stats');
+      var gGrid = document.getElementById('google-grid');
+      if (camps.length === 0) {
+        gGrid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">Ei käynnissä olevia Google-kampanjoita viimeisen 7 päivän aikana.</div>';
+        return;
+      }
+      var kulu = 0, kl = 0, imp = 0, hakT = 0, kuluT = 0;
+      camps.forEach(function (c) {
+        kulu += c.kulu || 0; kl += c.klikkaukset || 0; imp += c.impressiot || 0;
+        if (c.tyyppi !== 'brandi') { hakT += c.hakemukset || 0; kuluT += c.kulu || 0; }
+      });
+      var gStatsArr = [
+        { num: camps.length, label: 'Kampanjaa käynnissä' },
+        { num: fmtEur(kulu), label: 'Kulu 30 pv' },
+        { num: kl.toLocaleString('fi-FI'), label: 'Klikkausta' },
+        { num: kl > 0 ? fmtEur(kulu / kl) : '–', label: 'Hinta / klikkaus' },
+        { num: hakT.toLocaleString('fi-FI'), label: 'Hakemusta, työpaikat (GA4)' }
+      ];
+      gStatsArr.forEach(function (s) {
+        var tile = document.createElement('div');
+        tile.className = 'stat-tile';
+        tile.innerHTML = '<div class="num">' + s.num + '</div><div class="label">' + s.label + '</div>';
+        gStats.appendChild(tile);
+      });
+      camps.forEach(function (c) {
+        var brandi = c.tyyppi === 'brandi';
+        var card = document.createElement('div');
+        card.className = 'card';
+        var ctrTxt = typeof c.ctr === 'number' ? fmtPct(c.ctr) : '–';
+        var cpc = (c.klikkaukset > 0) ? c.kulu / c.klikkaukset : null;
+        var n = c.hakemukset || 0;
+        var hakRows = '<div class="meta-row"><span class="k">Hakemukset</span><span class="v">' + n.toLocaleString('fi-FI') + '</span></div>';
+        if (brandi) {
+          hakRows += '<div class="sub">Brändihaku: moni hakija olisi löytänyt Solon muutenkin, joten hintaa per hakemus ei lasketa.</div>';
+        } else {
+          var konv = c.klikkaukset > 0 ? (n / c.klikkaukset * 100).toLocaleString('fi-FI', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %' : '–';
+          var hinta = n >= 3 ? fmtEur(c.kulu / n) : (n > 0 ? '– (alle 3)' : '–');
+          hakRows += '<div class="sub">GA4:n kirjaamat, alaraja. Todellinen määrä on suurempi.</div>' +
+            '<div class="meta-row"><span class="k">Klikistä hakemukseen</span><span class="v">' + konv + '</span></div>' +
+            '<div class="meta-row"><span class="k">Hinta / hakemus</span><span class="v">' + hinta + '</span></div>';
+        }
+        card.innerHTML =
+          '<div class="eyebrow">Google · ' + (brandi ? 'Brändihaku' : 'Työpaikkakampanja') + '</div>' +
+          '<h2>' + escapeHtml(c.kampanja) + '</h2>' +
+          '<div class="meta-row"><span class="k">Klikkaukset</span><span class="v">' + (c.klikkaukset || 0).toLocaleString('fi-FI') + '</span></div>' +
+          '<div class="meta-row"><span class="k">Näytöt</span><span class="v">' + (c.impressiot || 0).toLocaleString('fi-FI') + '</span></div>' +
+          '<div class="meta-row"><span class="k">CTR</span><span class="v">' + ctrTxt + '</span></div>' +
+          trendHtml(c.paivittain) +
+          '<div class="meta-row"><span class="k">Kulu 30 pv</span><span class="v">' + fmtEur(c.kulu || 0) + '</span></div>' +
+          '<div class="meta-row"><span class="k">Hinta / klikkaus</span><span class="v">' + (cpc !== null ? fmtEur(cpc) : '–') + '</span></div>' +
+          hakRows;
+        gGrid.appendChild(card);
+      });
+    })();
 
     function fmtPct(v) {
       return v.toLocaleString('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' %';
