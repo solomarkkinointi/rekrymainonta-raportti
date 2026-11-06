@@ -1,0 +1,681 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>LääkäriTaskussa-mainonta nyt</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #FDFBF3;
+    --surface: #FFFFFF;
+    --text: #221B46;
+    --text-muted: #6B6285;
+    --accent: #952271;
+    --accent-strong: #7A1B5C;
+    --accent-soft: #EAD3E3;
+    --accent-mid: #CC95BB;
+    --border: #E6DCE7;
+    --lavender: #AD9CC0;
+    --shadow: rgba(34, 27, 70, 0.08);
+    --good: #2E7D46;
+    --good-soft: #E1F0E5;
+    --bad: #B23B3B;
+    --bad-soft: #F6E1DF;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171129;
+      --surface: #221B46;
+      --text: #FDFBF3;
+      --text-muted: #C3B8DC;
+      --accent: #E2A8CC;
+      --accent-strong: #F0C4DE;
+      --accent-soft: #362B5C;
+      --accent-mid: #4A3C74;
+      --border: #372C5C;
+      --lavender: #AD9CC0;
+      --shadow: rgba(0, 0, 0, 0.35);
+      --good: #7CD9A0;
+      --good-soft: #223B2C;
+      --bad: #F0A0A0;
+      --bad-soft: #3E2422;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #171129;
+    --surface: #221B46;
+    --text: #FDFBF3;
+    --text-muted: #C3B8DC;
+    --accent: #E2A8CC;
+    --accent-strong: #F0C4DE;
+    --accent-soft: #362B5C;
+    --accent-mid: #4A3C74;
+    --border: #372C5C;
+    --lavender: #AD9CC0;
+    --shadow: rgba(0, 0, 0, 0.35);
+    --good: #7CD9A0;
+    --good-soft: #223B2C;
+    --bad: #F0A0A0;
+    --bad-soft: #3E2422;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', Calibri, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 24px 64px;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand img {
+    height: 34px;
+    width: auto;
+    display: block;
+  }
+
+  .brand-divider {
+    width: 1px;
+    height: 28px;
+    background: var(--border);
+  }
+
+  .brand-mark {
+    font-family: 'Poppins', Calibri, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+  }
+
+  .brand-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+  }
+
+  .updated-pill {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 7px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .updated-pill strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    line-height: 1.15;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+
+  .lede {
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 62ch;
+    margin: 0 0 32px;
+    line-height: 1.55;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .stat-tile {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    min-width: 150px;
+    flex: 1 1 150px;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+
+  .stat-tile .num {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+
+  .stat-tile .label {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-top: 6px;
+    font-weight: 600;
+  }
+
+  .section-label {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 22px 20px;
+    box-shadow: 0 1px 3px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .card .eyebrow {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .card h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    font-size: 1.22rem;
+    line-height: 1.28;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .card .meta-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 0.86rem;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+
+  .card .meta-row .k {
+    color: var(--text-muted);
+  }
+
+  .card .meta-row .v {
+    font-weight: 500;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent-strong);
+    white-space: nowrap;
+  }
+
+  .badge.urgent {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  .ctr-cell {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  .ctr-flag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .ctr-flag .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex: none;
+  }
+
+  .ctr-flag.good {
+    background: var(--good-soft);
+    color: var(--good);
+  }
+
+  .ctr-flag.good .dot { background: var(--good); }
+
+  .ctr-flag.bad {
+    background: var(--bad-soft);
+    color: var(--bad);
+  }
+
+  .ctr-flag.bad .dot { background: var(--bad); }
+
+  .ctr-flag.mid {
+    background: var(--accent-soft);
+    color: var(--text-muted);
+  }
+
+  .ctr-flag.mid .dot { background: var(--text-muted); }
+
+  .ad-img {
+    display: block;
+    width: calc(100% + 44px);
+    margin: -22px -22px 0;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: var(--accent-soft);
+    border-radius: 16px 16px 0 0;
+  }
+
+  .card .sub {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-top: -8px;
+  }
+
+  .trend {
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+
+  .trend-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 0.86rem;
+    margin-bottom: 6px;
+  }
+
+  .trend-head .k { color: var(--text-muted); }
+
+  .trend-head .avg {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .trend svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .trend .line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .trend .avg-line { stroke: var(--accent-mid); stroke-width: 1.5; stroke-dasharray: 4 3; }
+  .trend .pt { fill: var(--surface); stroke: var(--accent); stroke-width: 1.8; }
+  .trend .pt.last { fill: var(--accent); }
+  .trend .axis { fill: var(--text-muted); font-size: 9px; font-family: 'Poppins', Calibri, Arial, sans-serif; }
+  .trend .baseline { stroke: var(--border); stroke-width: 1; }
+  .trend .note { font-size: 0.74rem; color: var(--text-muted); margin-top: 4px; }
+
+  .empty-state {
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 16px;
+    padding: 48px 24px;
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+  }
+
+  .google-section {
+    border-top: 1px solid var(--border);
+    padding-top: 36px;
+    margin-top: 8px;
+  }
+  .google-section h2.section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin: 0 0 8px;
+  }
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 22px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  footer p { margin: 0 0 8px; }
+  footer strong { color: var(--text); }
+
+  @media (max-width: 520px) {
+    .wrap { padding: 28px 16px 48px; }
+    header { align-items: flex-start; }
+  }
+  .card .badge { align-self: flex-start; }
+</style>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <div class="brand-mark">SOLO HEALTH</div>
+      <div class="brand-divider"></div>
+      <div class="brand-title">LääkäriTaskussa-mainonta</div>
+    </div>
+    <div class="updated-pill">Päivitetty <strong id="updated-at">–</strong></div>
+  </header>
+  <h1>Miten LääkäriTaskussa-mainonta toimii juuri nyt</h1>
+  <p class="lede">Kooste LääkäriTaskussa-palvelun käynnissä olevasta mainonnasta: mitä mainoksiin on käytetty, paljonko ne tuovat klikkauksia ja ostoja eli valmiita reseptin uusintoja.</p>
+
+  <div class="section-label">Valmiit uusinnat, kaikki kanavat</div>
+  <div class="stat-row" id="ga4-row"></div>
+
+  <div class="section-label">Meta-mainonta (Facebook &amp; Instagram)</div>
+  <div class="stat-row" id="stat-row"></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty-state" id="empty-state" hidden>Ei tällä hetkellä yhtään aikataulunsa sisällä olevaa Meta-mainosta.</div>
+
+  <section class="google-section" id="google-section" hidden>
+    <div class="section-label">Google-hakumainonta</div>
+    <h2 class="section-title">Google-mainonta viimeiset 30 päivää</h2>
+    <p class="lede" id="google-lede"></p>
+    <div class="stat-row" id="google-stats"></div>
+    <div class="grid" id="google-grid"></div>
+  </section>
+
+  <footer>
+    <p><strong>Valmiit uusinnat:</strong> Google Analyticsin kirjaamat reseptin uusinnat kaikista kanavista (mainonta, haku, suora liikenne, kanta-asiakkaat). Jakso päättyy eiliseen. Muutos verrattuna edelliseen yhtä pitkään jaksoon.</p>
+    <p><strong>Meta-mainokset:</strong> mukana mainosjoukot, joiden oma aikataulu on juuri nyt voimassa. Luvut ovat kumulatiivisia mainoksen alkupäivästä tähän päivään.</p>
+    <p><strong>Ostot:</strong> Metan oma luku pikselin Ostaminen-tapahtumasta (valmis uusinta). Meta laskee mukaan myös mainoksen katselun jälkeen tehdyt ostot omalla attribuutiomallillaan. Siksi Metan ostoja ei voi vähentää yllä olevasta kokonaismäärästä, eikä niitä voi laskea yhteen Googlen lukujen kanssa.</p>
+    <p><strong>Hinta / osto:</strong> mainoksen kulu jaettuna ostoilla. Näytetään, kun ostoja on vähintään 3. Pienemmällä määrällä yksi osto heiluttaa lukua liikaa.</p>
+    <p><strong>CTR-vihje:</strong> vertaa mainoksen linkki-CTR:ää kaikkien käynnissä olevien Meta-mainosten keskiarvoon (<span id="ctr-avg-txt">–</span>). Näytetään, kun mainoksia on vähintään kaksi.</p>
+    <p><strong>Google-mainonta:</strong> luvut Google Analyticsin Google Ads -linkityksestä. Aloitus = klikkaus laakaritaskussa.fi:stä uusintaan (mitattu 4.11.2026 alkaen). Valmis uusinta ei kohdistu Google-mainoksille vahvan tunnistautumisen takia.</p>
+    <p>Kysy Hemppa Ketolalta, jos luvut vaikuttavat vanhentuneilta.</p>
+  </footer>
+</div>
+<script id="lt-data" type="application/json">{
+  "haettu": "2026-11-06T07:37:11.759835+00:00",
+  "mainostili": "act_253270399250507",
+  "kaynnissa": [
+    {
+      "klikkaukset": 22,
+      "ctr": 1.676829,
+      "kulu": 10.41,
+      "impressiot": 1312,
+      "tavoittavuus": 889,
+      "ostot": 0,
+      "mainos": "laakaritaskussa resepti huomiseksi lokakuu 2026 (Myynti)",
+      "kampanja": "laakaritaskussa resepti huomiseksi lokakuu 2026 (Myynti)",
+      "tavoite": "OUTCOME_SALES",
+      "alkaa": "2026-11-04",
+      "paattyy": "2026-11-30",
+      "adset_id": "120252418634950294",
+      "paivittain": [
+        {
+          "pvm": "2026-11-04",
+          "impressiot": 415,
+          "klikkaukset": 9,
+          "ctr": 2.168675,
+          "kulu": 3.02,
+          "ostot": 0
+        },
+        {
+          "pvm": "2026-11-05",
+          "impressiot": 788,
+          "klikkaukset": 11,
+          "ctr": 1.395939,
+          "kulu": 6.48,
+          "ostot": 0
+        }
+      ],
+      "kuva": "../kuvat/120252418634950294.jpg"
+    }
+  ],
+  "ga4": {
+    "jakso_loppu": "2026-11-05",
+    "uusinnat_7": 54,
+    "uusinnat_7_ed": 54,
+    "uusinnat_30": 228,
+    "uusinnat_30_ed": 70
+  },
+  "google": {
+    "jakso_alku": "2026-10-07",
+    "jakso_loppu": "2026-11-05",
+    "kampanjat": []
+  }
+}</script>
+<script>
+  (function () {
+    var data = JSON.parse(document.getElementById('lt-data').textContent);
+    var items = data.kaynnissa || [];
+    function fmtPvm(iso) {
+      if (!iso) return null;
+      return new Date(iso + 'T00:00:00').toLocaleDateString('fi-FI', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+    function fmtHaettu(iso) {
+      var d = new Date(iso);
+      return d.toLocaleDateString('fi-FI', { day: 'numeric', month: 'long' }) + ' klo ' +
+        d.toLocaleTimeString('fi-FI', { hour: '2-digit', minute: '2-digit' });
+    }
+    function fmtEur(v) { return v.toLocaleString('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €'; }
+    function fmtPct(v) { return v.toLocaleString('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' %'; }
+    function fmtInt(v) { return (typeof v === 'number') ? v.toLocaleString('fi-FI') : '–'; }
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+    function tile(row, num, label) {
+      var t = document.createElement('div');
+      t.className = 'stat-tile';
+      t.innerHTML = '<div class="num">' + num + '</div><div class="label">' + label + '</div>';
+      row.appendChild(t);
+    }
+    document.getElementById('updated-at').textContent = data.haettu ? fmtHaettu(data.haettu) : '–';
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+
+    // ---- GA4: valmiit uusinnat ----
+    var g4 = data.ga4, g4row = document.getElementById('ga4-row');
+    function muutos(cur, prev) {
+      if (!prev) return '';
+      var p = (cur - prev) / prev * 100;
+      return ' (' + (p >= 0 ? '+' : '') + p.toLocaleString('fi-FI', { maximumFractionDigits: 0 }) + ' % ed. jaksosta)';
+    }
+    if (g4) {
+      tile(g4row, fmtInt(g4.uusinnat_7), 'Viim. 7 pv' + muutos(g4.uusinnat_7, g4.uusinnat_7_ed));
+      tile(g4row, fmtInt(g4.uusinnat_30), 'Viim. 30 pv' + muutos(g4.uusinnat_30, g4.uusinnat_30_ed));
+    } else {
+      g4row.innerHTML = '<div class="empty-state" style="flex:1;margin:0">Uusintatietoa ei saatu tällä päivityskerralla.</div>';
+    }
+
+    // ---- Meta ----
+    var kulu = 0, klik = 0, ostot = 0, ctrSum = 0, ctrN = 0, soon = 0;
+    items.forEach(function (it) {
+      if (typeof it.kulu === 'number') kulu += it.kulu;
+      if (typeof it.klikkaukset === 'number') klik += it.klikkaukset;
+      if (typeof it.ostot === 'number') ostot += it.ostot;
+      if (typeof it.ctr === 'number') { ctrSum += it.ctr; ctrN++; }
+    });
+    var ctrAvg = ctrN ? ctrSum / ctrN : null;
+    var ctrAvgTxt = ctrAvg !== null ? fmtPct(ctrAvg) : '–';
+    document.getElementById('ctr-avg-txt').textContent = ctrAvgTxt;
+    function ctrFlag(ctr) {
+      if (typeof ctr !== 'number' || ctrAvg === null || ctrN < 2) return '';
+      var diff = (ctr - ctrAvg) / ctrAvg, cls = 'mid', label = 'Keskitasoa';
+      if (diff >= 0.15) { cls = 'good'; label = 'Yli keskitason'; }
+      else if (diff <= -0.15) { cls = 'bad'; label = 'Alle keskitason'; }
+      return '<span class="ctr-flag ' + cls + '"><span class="dot"></span>' + label + '</span>';
+    }
+    var sr = document.getElementById('stat-row');
+    tile(sr, items.length, 'Mainosta käynnissä');
+    tile(sr, fmtEur(kulu), 'Kulu yhteensä');
+    tile(sr, fmtInt(klik), 'Linkkiklikkiä');
+    tile(sr, fmtInt(ostot), 'Ostoa (Meta)');
+    tile(sr, ostot >= 3 ? fmtEur(kulu / ostot) : '–', 'Hinta / osto');
+
+    var grid = document.getElementById('grid');
+    if (items.length === 0) {
+      grid.hidden = true;
+      document.getElementById('empty-state').hidden = false;
+    }
+    items.forEach(function (it) {
+      var badge;
+      if (it.paattyy) {
+        var days = Math.round((new Date(it.paattyy + 'T00:00:00') - today) / 86400000);
+        badge = '<span class="badge' + (days <= 14 ? ' urgent' : '') + '">' + (days <= 0 ? 'Päättyy tänään' : 'Päättyy ' + days + ' pv päästä') + '</span>';
+      } else {
+        badge = '<span class="badge">Jatkuva, ei loppupäivää</span>';
+      }
+      var cpc = (typeof it.kulu === 'number' && it.klikkaukset > 0) ? it.kulu / it.klikkaukset : null;
+      var o = it.ostot || 0;
+      var hintaOsto = (o >= 3 && typeof it.kulu === 'number') ? fmtEur(it.kulu / o) : (o > 0 ? '– (alle 3)' : '–');
+      var klikOsto = it.klikkaukset > 0 ? (o / it.klikkaukset * 100).toLocaleString('fi-FI', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %' : '–';
+      var card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML =
+        (it.kuva ? '<img class="ad-img" loading="lazy" src="' + escapeHtml(it.kuva) + '" alt="Mainoksen kuva" onerror="this.remove()">' : '') +
+        '<div class="eyebrow">' + escapeHtml(it.kampanja || '') + '</div>' +
+        '<h2>' + escapeHtml(it.mainos || '') + '</h2>' + badge +
+        '<div class="meta-row"><span class="k">Aikataulu</span><span class="v">' + escapeHtml(fmtPvm(it.alkaa) || '–') + ' – ' + escapeHtml(fmtPvm(it.paattyy) || 'toistaiseksi') + '</span></div>' +
+        '<div class="meta-row"><span class="k">Näytöt</span><span class="v">' + fmtInt(it.impressiot) + '</span></div>' +
+        '<div class="meta-row"><span class="k">Linkkiklikit</span><span class="v">' + fmtInt(it.klikkaukset) + '</span></div>' +
+        '<div class="meta-row"><span class="k">Linkki-CTR</span><span class="v ctr-cell">' + ctrFlag(it.ctr) + '<span>' + (typeof it.ctr === 'number' ? fmtPct(it.ctr) : '–') + '</span></span></div>' +
+        trendHtml(it.paivittain) +
+        '<div class="meta-row"><span class="k">Kulu tähän mennessä</span><span class="v">' + (typeof it.kulu === 'number' ? fmtEur(it.kulu) : '–') + '</span></div>' +
+        '<div class="meta-row"><span class="k">Hinta / linkkiklikki</span><span class="v">' + (cpc !== null ? fmtEur(cpc) : '–') + '</span></div>' +
+        '<div class="meta-row"><span class="k">Ostot (Meta)</span><span class="v">' + fmtInt(it.ostot) + '</span></div>' +
+        '<div class="meta-row"><span class="k">Klikistä ostoon</span><span class="v">' + klikOsto + '</span></div>' +
+        '<div class="meta-row"><span class="k">Hinta / osto</span><span class="v">' + hintaOsto + '</span></div>';
+      grid.appendChild(card);
+    });
+
+    // ---- Google ----
+    (function () {
+      var g = data.google;
+      if (!g || !Array.isArray(g.kampanjat) || g.kampanjat.length === 0) return;
+      document.getElementById('google-section').hidden = false;
+      document.getElementById('google-lede').textContent = 'Jakso ' + fmtPvm(g.jakso_alku) + ' – ' + fmtPvm(g.jakso_loppu) +
+        '. Mukana kampanjat, joilla on ollut näyttöjä viimeisen 7 päivän aikana.';
+      var gk = 0, gc = 0, ga = 0;
+      g.kampanjat.forEach(function (c) { gk += c.kulu || 0; gc += c.klikkaukset || 0; ga += c.aloitukset || 0; });
+      var gs = document.getElementById('google-stats');
+      tile(gs, g.kampanjat.length, 'Kampanjaa käynnissä');
+      tile(gs, fmtEur(gk), 'Kulu 30 pv');
+      tile(gs, fmtInt(gc), 'Klikkausta');
+      tile(gs, fmtInt(ga), 'Aloitettua uusintaa');
+      tile(gs, ga >= 3 ? fmtEur(gk / ga) : '–', 'Hinta / aloitus');
+      var gg = document.getElementById('google-grid');
+      g.kampanjat.forEach(function (c) {
+        var a = c.aloitukset || 0;
+        var card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = '<div class="eyebrow">Google · Hakumainonta</div><h2>' + escapeHtml(c.kampanja) + '</h2>' +
+          '<div class="meta-row"><span class="k">Klikkaukset</span><span class="v">' + fmtInt(c.klikkaukset) + '</span></div>' +
+          '<div class="meta-row"><span class="k">Näytöt</span><span class="v">' + fmtInt(c.impressiot) + '</span></div>' +
+          '<div class="meta-row"><span class="k">CTR</span><span class="v">' + (typeof c.ctr === 'number' ? fmtPct(c.ctr) : '–') + '</span></div>' +
+          trendHtml(c.paivittain) +
+          '<div class="meta-row"><span class="k">Kulu 30 pv</span><span class="v">' + fmtEur(c.kulu || 0) + '</span></div>' +
+          '<div class="meta-row"><span class="k">Hinta / klikkaus</span><span class="v">' + (c.klikkaukset > 0 ? fmtEur(c.kulu / c.klikkaukset) : '–') + '</span></div>' +
+          '<div class="meta-row"><span class="k">Aloitetut uusinnat</span><span class="v">' + fmtInt(a) + '</span></div>' +
+          '<div class="meta-row"><span class="k">Hinta / aloitus</span><span class="v">' + (a >= 3 ? fmtEur(c.kulu / a) : (a > 0 ? '– (alle 3)' : '–')) + '</span></div>';
+        gg.appendChild(card);
+      });
+    })();
+
+    function trendHtml(paivat) {
+      if (!Array.isArray(paivat)) return '';
+      var head = '<div class="trend-head"><span class="k">CTR-trendi 7 pv</span>';
+      var pts = paivat.filter(function (p) { return typeof p.ctr === 'number'; });
+      if (pts.length < 2) {
+        return '<div class="trend">' + head + '</div>' +
+          '<div class="note">Liian vähän päiviä trendiin (mainos alkoi hiljattain).</div></div>';
+      }
+      var klik = 0, imp = 0;
+      paivat.forEach(function (p) { klik += p.klikkaukset || 0; imp += p.impressiot || 0; });
+      var avg = imp > 0 ? (klik / imp * 100) : null;
+
+      var W = 260, H = 100, padL = 14, padR = 22, padT = 10, padB = 18;
+      var n = paivat.length;
+      var maxV = Math.max.apply(null, pts.map(function (p) { return p.ctr; }).concat(avg || 0)) * 1.15 || 1;
+      function x(i) { return padL + (n === 1 ? 0 : i * (W - padL - padR) / (n - 1)); }
+      function y(v) { return padT + (1 - v / maxV) * (H - padT - padB); }
+
+      var d = '', pen = false, dots = '';
+      paivat.forEach(function (p, i) {
+        if (typeof p.ctr !== 'number') { pen = false; return; }
+        d += (pen ? 'L' : 'M') + x(i).toFixed(1) + ' ' + y(p.ctr).toFixed(1) + ' ';
+        pen = true;
+        var last = (p === pts[pts.length - 1]);
+        dots += '<circle class="pt' + (last ? ' last' : '') + '" cx="' + x(i).toFixed(1) + '" cy="' + y(p.ctr).toFixed(1) + '" r="' + (last ? 3.2 : 2.4) + '"><title>' +
+          fmtPvm(p.pvm) + ': ' + fmtPct(p.ctr) + ' (' + (p.klikkaukset || 0).toLocaleString('fi-FI') + ' klikkiä / ' + (p.impressiot || 0).toLocaleString('fi-FI') + ' näyttöä)</title></circle>';
+      });
+
+      var labels = '';
+      var vk = ['su', 'ma', 'ti', 'ke', 'to', 'pe', 'la'];
+      paivat.forEach(function (p, i) {
+        var dt = new Date(p.pvm + 'T00:00:00');
+        labels += '<text class="axis" x="' + x(i).toFixed(1) + '" y="' + (H - 4) + '" text-anchor="middle">' + vk[dt.getDay()] + ' ' + dt.getDate() + '.</text>';
+      });
+
+      var avgSvg = '';
+      if (avg !== null) {
+        var ay = y(avg).toFixed(1);
+        avgSvg = '<line class="avg-line" x1="' + padL + '" x2="' + (W - padR) + '" y1="' + ay + '" y2="' + ay + '"></line>' +
+          '<text class="axis" x="' + (W - padR + 4) + '" y="' + (parseFloat(ay) + 3) + '">ka.</text>';
+      }
+
+      var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Linkki-CTR päivittäin viimeiseltä 7 päivältä">' +
+        '<line class="baseline" x1="' + padL + '" x2="' + (W - padR) + '" y1="' + y(0).toFixed(1) + '" y2="' + y(0).toFixed(1) + '"></line>' +
+        avgSvg + '<path class="line" d="' + d + '"></path>' + dots + labels + '</svg>';
+
+      return '<div class="trend">' + head +
+        (avg !== null ? '<span class="avg">Keskitaso ' + fmtPct(avg) + '</span>' : '') +
+        '</div>' + svg + '<div class="note">Verrattu tämän mainoksen omiin aiempiin päiviin. Katkoviiva = viikon keskitaso.</div></div>';
+    }
+
+  })();
+</script>
