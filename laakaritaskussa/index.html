@@ -418,6 +418,7 @@
   <div class="stat-row" id="stat-row"></div>
   <div class="grid" id="grid"></div>
   <div class="empty-state" id="empty-state" hidden>Ei tällä hetkellä yhtään aikataulunsa sisällä olevaa Meta-mainosta.</div>
+  <div id="ads-section"></div>
 
   <section class="google-section" id="google-section" hidden>
     <div class="section-label">Google-hakumainonta</div>
@@ -431,6 +432,7 @@
     <p><strong>Valmiit uusinnat:</strong> Google Analyticsin kirjaamat reseptin uusinnat kaikista kanavista (mainonta, haku, suora liikenne, kanta-asiakkaat). Jakso päättyy eiliseen. Muutos verrattuna edelliseen yhtä pitkään jaksoon. <strong>Luku on alaraja, ei virallinen määrä:</strong> Google Analytics ei näe evästeet kieltäneitä käyttäjiä. Lokakuussa 2026 se kirjasi 231 uusintaa, Reseptorin oma järjestelmä 333, eli noin 70 %. Käytä lukua suunnan seuraamiseen, viralliset määrät Reseptorista.</p>
     <p><strong>Meta-mainokset:</strong> mukana mainosjoukot, joiden oma aikataulu on juuri nyt voimassa. Luvut ovat kumulatiivisia mainoksen alkupäivästä tähän päivään.</p>
     <p><strong>Ostot:</strong> Metan oma luku pikselin Ostaminen-tapahtumasta (valmis uusinta). Meta laskee mukaan myös mainoksen katselun jälkeen tehdyt ostot omalla attribuutiomallillaan. Siksi Metan ostoja ei voi vähentää yllä olevasta kokonaismäärästä, eikä niitä voi laskea yhteen Googlen lukujen kanssa.</p>
+    <p><strong>Mainokset:</strong> mainosjoukon sisällä olevat yksittäiset mainokset samoilla mittareilla. CTR-merkintä vertaa mainosta saman joukon muihin mainoksiin, kun mainoksella on vähintään 500 näyttöä. Alle 1 000 näytön luvut heiluvat vielä paljon, joten mainoksia ei kannata karsia niiden perusteella.</p>
     <p><strong>Hinta / osto:</strong> mainoksen kulu jaettuna ostoilla. Näytetään, kun ostoja on vähintään 3. Pienemmällä määrällä yksi osto heiluttaa lukua liikaa.</p>
     <p><strong>CTR-vihje:</strong> vertaa mainoksen linkki-CTR:ää kaikkien käynnissä olevien Meta-mainosten keskiarvoon (<span id="ctr-avg-txt">–</span>). Näytetään, kun mainoksia on vähintään kaksi.</p>
     <p><strong>Google-mainonta:</strong> luvut Google Analyticsin Google Ads -linkityksestä. Aloitus = klikkaus laakaritaskussa.fi:stä uusintaan (mitattu 4.11.2026 alkaen). Valmis uusinta ei kohdistu Google-mainoksille vahvan tunnistautumisen takia.</p>
@@ -438,16 +440,54 @@
   </footer>
 </div>
 <script id="lt-data" type="application/json">{
-  "haettu": "2026-11-11T13:27:01.886481+00:00",
+  "haettu": "2026-11-11T13:41:14.980494+00:00",
   "mainostili": "act_253270399250507",
   "kaynnissa": [
     {
-      "klikkaukset": 1,
-      "ctr": 0.355872,
-      "kulu": 3.04,
-      "impressiot": 281,
-      "tavoittavuus": 232,
+      "klikkaukset": 2,
+      "ctr": 0.675676,
+      "kulu": 3.24,
+      "impressiot": 296,
+      "tavoittavuus": 241,
       "ostot": 0,
+      "mainokset": [
+        {
+          "id": "120252522082890294",
+          "nimi": "nopeus_karuselli_v1",
+          "tila": "ACTIVE",
+          "impressiot": 264,
+          "klikkaukset": 2,
+          "ctr": 0.757576,
+          "kulu": 2.81,
+          "ostot": 0,
+          "paivittain": [],
+          "kuva": "../kuvat/ad_120252522082890294.jpg"
+        },
+        {
+          "id": "120252523388190294",
+          "nimi": "nopeus_ugc_v1",
+          "tila": "ACTIVE",
+          "impressiot": 32,
+          "klikkaukset": 0,
+          "ctr": null,
+          "kulu": 0.43,
+          "ostot": 0,
+          "paivittain": [],
+          "kuva": "../kuvat/ad_120252523388190294.jpg"
+        },
+        {
+          "id": "120252522830900294",
+          "nimi": "nopeus_kelloanimaatio_v1",
+          "tila": "ACTIVE",
+          "impressiot": 0,
+          "klikkaukset": 0,
+          "ctr": null,
+          "kulu": 0.0,
+          "ostot": 0,
+          "paivittain": [],
+          "kuva": "../kuvat/ad_120252522830900294.jpg"
+        }
+      ],
       "mainos": "LT_Nopeus_CreativeTest_25-44_FI myynti",
       "kampanja": "LT_ReseptinUusinta_Nopeus_Prospektointi_202611",
       "tavoite": "OUTCOME_SALES",
@@ -535,7 +575,9 @@
       return '<span class="ctr-flag ' + cls + '"><span class="dot"></span>' + label + '</span>';
     }
     var sr = document.getElementById('stat-row');
-    tile(sr, items.length, 'Mainosta käynnissä');
+    var adCount = 0; items.forEach(function (it) { adCount += (it.mainokset || []).length; });
+    tile(sr, items.length, 'Mainosjoukkoa käynnissä');
+    if (adCount) tile(sr, adCount, 'Mainosta joukoissa');
     tile(sr, fmtEur(kulu), 'Kulu yhteensä');
     tile(sr, fmtInt(klik), 'Linkkiklikkiä');
     tile(sr, fmtInt(ostot), 'Ostoa (Meta)');
@@ -562,8 +604,9 @@
       card.className = 'card';
       card.innerHTML =
         (it.kuva ? '<img class="ad-img" loading="lazy" src="' + escapeHtml(it.kuva) + '" alt="Mainoksen kuva" onerror="this.remove()">' : '') +
-        '<div class="eyebrow">' + escapeHtml(it.kampanja || '') + '</div>' +
+        '<div class="eyebrow">Mainosjoukko · kampanja ' + escapeHtml(it.kampanja || '') + '</div>' +
         '<h2>' + escapeHtml(it.mainos || '') + '</h2>' + badge +
+        (Array.isArray(it.mainokset) ? '<div class="meta-row"><span class="k">Mainoksia joukossa</span><span class="v">' + it.mainokset.length + ' (ks. alla)</span></div>' : '') +
         '<div class="meta-row"><span class="k">Aikataulu</span><span class="v">' + escapeHtml(fmtPvm(it.alkaa) || '–') + ' – ' + escapeHtml(fmtPvm(it.paattyy) || 'toistaiseksi') + '</span></div>' +
         '<div class="meta-row"><span class="k">Näytöt</span><span class="v">' + fmtInt(it.impressiot) + '</span></div>' +
         '<div class="meta-row"><span class="k">Linkkiklikit</span><span class="v">' + fmtInt(it.klikkaukset) + '</span></div>' +
@@ -576,6 +619,61 @@
         '<div class="meta-row"><span class="k">Hinta / osto</span><span class="v">' + hintaOsto + '</span></div>';
       grid.appendChild(card);
     });
+
+    // ---- Mainokset mainosjoukoittain ----
+    (function () {
+      var host = document.getElementById('ads-section');
+      items.forEach(function (it) {
+        var ads = it.mainokset;
+        if (!Array.isArray(ads) || ads.length === 0) return;
+        var total = 0;
+        ads.forEach(function (a) { total += a.kulu || 0; });
+        var vert = ads.filter(function (a) { return a.impressiot >= 500 && typeof a.ctr === 'number'; });
+        var imp = 0, kl = 0;
+        vert.forEach(function (a) { imp += a.impressiot; kl += a.klikkaukset; });
+        var avg = (vert.length >= 2 && imp > 0) ? kl / imp * 100 : null;
+        function flag(a) {
+          if (avg === null || a.impressiot < 500 || typeof a.ctr !== 'number') return '';
+          var d = (a.ctr - avg) / avg, cls = 'mid', lab = 'Keskitasoa';
+          if (d >= 0.15) { cls = 'good'; lab = 'Yli joukon tason'; }
+          else if (d <= -0.15) { cls = 'bad'; lab = 'Alle joukon tason'; }
+          return '<span class="ctr-flag ' + cls + '"><span class="dot"></span>' + lab + '</span>';
+        }
+        var TILA = { ACTIVE: 'Aktiivinen', PAUSED: 'Pois päältä', ADSET_PAUSED: 'Joukko pois päältä', CAMPAIGN_PAUSED: 'Kampanja pois päältä',
+                     PENDING_REVIEW: 'Tarkistettavana', DISAPPROVED: 'Hylätty', WITH_ISSUES: 'Ongelmia', IN_PROCESS: 'Käsittelyssä' };
+        var wrap = document.createElement('div');
+        wrap.innerHTML = '<div class="section-label">Mainokset · ' + escapeHtml(it.mainos || '') + '</div>' +
+          '<p class="lede" style="margin-bottom:18px">Mainosjoukon ' + ads.length + ' mainosta, järjestetty kulun mukaan. Meta jakaa budjetin mainosten kesken itse: pieni kulu tarkoittaa, että Meta on suosinut muita, ei välttämättä huonoa mainosta.' +
+          (avg !== null ? ' Joukon mainosten keskimääräinen CTR ' + fmtPct(avg) + '.' : '') + '</p>';
+        var grid = document.createElement('div');
+        grid.className = 'grid';
+        ads.forEach(function (a) {
+          var o = a.ostot || 0;
+          var cpc = a.klikkaukset > 0 ? a.kulu / a.klikkaukset : null;
+          var share = total > 0 ? (a.kulu / total * 100) : null;
+          var vahan = a.impressiot < 1000;
+          var card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML =
+            (a.kuva ? '<img class="ad-img" loading="lazy" src="' + escapeHtml(a.kuva) + '" alt="Mainoksen kuva" onerror="this.remove()">' : '') +
+            '<div class="eyebrow">Mainos · ' + escapeHtml(TILA[a.tila] || a.tila || '') + '</div>' +
+            '<h2>' + escapeHtml(a.nimi || '') + '</h2>' +
+            (vahan ? '<span class="badge">Vähän dataa, alle 1 000 näyttöä</span>' : '') +
+            '<div class="meta-row"><span class="k">Osuus joukon kulusta</span><span class="v">' + (share !== null ? share.toLocaleString('fi-FI', { maximumFractionDigits: 0 }) + ' %' : '–') + '</span></div>' +
+            '<div class="meta-row"><span class="k">Näytöt</span><span class="v">' + fmtInt(a.impressiot) + '</span></div>' +
+            '<div class="meta-row"><span class="k">Linkkiklikit</span><span class="v">' + fmtInt(a.klikkaukset) + '</span></div>' +
+            '<div class="meta-row"><span class="k">Linkki-CTR</span><span class="v ctr-cell">' + flag(a) + '<span>' + (typeof a.ctr === 'number' ? fmtPct(a.ctr) : '–') + '</span></span></div>' +
+            trendHtml(a.paivittain) +
+            '<div class="meta-row"><span class="k">Kulu</span><span class="v">' + fmtEur(a.kulu || 0) + '</span></div>' +
+            '<div class="meta-row"><span class="k">Hinta / linkkiklikki</span><span class="v">' + (cpc !== null ? fmtEur(cpc) : '–') + '</span></div>' +
+            '<div class="meta-row"><span class="k">Ostot (Meta)</span><span class="v">' + fmtInt(o) + '</span></div>' +
+            '<div class="meta-row"><span class="k">Hinta / osto</span><span class="v">' + (o >= 3 ? fmtEur(a.kulu / o) : (o > 0 ? '– (alle 3)' : '–')) + '</span></div>';
+          grid.appendChild(card);
+        });
+        wrap.appendChild(grid);
+        host.appendChild(wrap);
+      });
+    })();
 
     // ---- Google ----
     (function () {
