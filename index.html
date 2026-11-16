@@ -425,6 +425,12 @@
     <div class="stat-row" id="google-stats"></div>
     <div class="grid" id="google-grid"></div>
   </section>
+  <section class="google-section" id="muut-section" hidden>
+    <div class="section-label">Muut kampanjat</div>
+    <h2 class="section-title">Mediaostot ja uutiskirjebannerit</h2>
+    <p class="lede">Kampanjat, joita ei ajeta mainosalustoilla. Luvut Google Analyticsista linkin UTM-tunnisteiden perusteella, kampanjan alusta eiliseen.</p>
+    <div class="grid" id="muut-grid"></div>
+  </section>
   <footer>
     <p><strong>Miten luku muodostuu:</strong> mukaan lasketaan vain mainosjoukot, joiden oma aikataulu (alkaa–päättyy) on juuri nyt voimassa — pelkkä Metan "aktiivinen"-merkintä ei riitä, koska se ei aina päivity automaattisesti aikataulun päättyessä.</p>
     <p><strong>Tulokset:</strong> linkkiklikit, CTR ja kulu ovat kumulatiivisia mainoksen omasta alkupäivästä tähän päivään — sama linkkiklikki-pohjainen mittari jota kuukausiraportissakin käytetään.</p>
@@ -433,12 +439,13 @@
     <p><strong>Hinta / linkkiklikki:</strong> mainoksen kulu jaettuna linkkiklikeillä alkupäivästä tähän päivään. Vertailukohta on kaikkien käynnissä olevien mainosten yhteenlaskettu kulu ÷ yhteenlasketut linkkiklikit (<span id="cpc-avg-txt">–</span>). Vihreä = selvästi edullisempi, punainen = selvästi kalliimpi.</p>
     <p><strong>Hakemukset:</strong> Google Analyticsin kirjaamat hakemukset, jotka tulivat mainoksen linkin kautta (tunnistetaan linkin UTM-parametreista), mainoksen alkupäivästä alkaen. Luku on alaraja: hakijat, jotka kieltävät evästeet tai palaavat myöhemmin toisella laitteella, eivät näy. Hinta / hakemus näytetään vasta, kun hakemuksia on vähintään kolme. "Ei seurattavissa" = linkistä puuttuu UTM-tunniste. "Ei eriteltävissä" = usealla mainoksella on sama tunniste.</p>
     <p><strong>Google-mainonta:</strong> Solo Health -tilin hakumainonta (työpaikat ja brändi), luvut Google Analyticsin Google Ads -linkityksestä viimeiseltä 30 täydeltä päivältä. Kampanja näytetään, jos sillä on ollut näyttöjä viimeisen 7 päivän aikana. Hakemukset ovat Google-mainoksen kautta tulleita käyntejä, tapahtumailmoitukset poistettu, ja luku on alaraja. Brändihaun hakijat etsivät jo valmiiksi Soloa, joten brändikampanjan hakemuksista ei lasketa hintaa. Google- ja Meta-lukuja ei verrata keskenään: hakumainonnan CTR on luonnostaan moninkertainen.</p>
+    <p><strong>Muut kampanjat:</strong> uutiskirjebannerit ja muut mediaostot. Näkyvät vain klikkauksen jälkeiset käynnit ja hakemukset. Bannerin näytöt ja klikkiprosentti tulevat median omasta raportista. Hakemukset ovat alaraja, kuten muissakin luvuissa.</p>
     <p>Data haetaan Meta Marketing API:sta ja sivu päivitetään säännöllisesti. Kysy Hemppa Ketolalta jos luvut vaikuttavat vanhentuneilta.</p>
   </footer>
 </div>
 
 <script id="rekrymainonta-data" type="application/json">{
-  "haettu": "2026-11-13T06:12:38.067273+00:00",
+  "haettu": "2026-11-16T06:12:56.570897+00:00",
   "mainostili": "Solo Health",
   "kaynnissa": [
     {
@@ -448,29 +455,11 @@
       "paattyy": "2026-11-16",
       "kanavat": "facebook, instagram, threads",
       "adset_id": "120250651114420073",
-      "klikkaukset": 593,
-      "ctr": 2.412432,
-      "kulu": 142.87,
-      "impressiot": 24581,
+      "klikkaukset": 906,
+      "ctr": 2.561565,
+      "kulu": 196.11,
+      "impressiot": 35369,
       "paivittain": [
-        {
-          "pvm": "2026-11-06",
-          "klikkaukset": 70,
-          "impressiot": 2719,
-          "ctr": 2.574476
-        },
-        {
-          "pvm": "2026-11-07",
-          "klikkaukset": 88,
-          "impressiot": 3351,
-          "ctr": 2.626082
-        },
-        {
-          "pvm": "2026-11-08",
-          "klikkaukset": 79,
-          "impressiot": 3007,
-          "ctr": 2.627203
-        },
         {
           "pvm": "2026-11-09",
           "klikkaukset": 76,
@@ -492,8 +481,26 @@
         {
           "pvm": "2026-11-12",
           "klikkaukset": 56,
-          "impressiot": 3283,
-          "ctr": 1.705757
+          "impressiot": 3284,
+          "ctr": 1.705238
+        },
+        {
+          "pvm": "2026-11-13",
+          "klikkaukset": 68,
+          "impressiot": 3368,
+          "ctr": 2.019002
+        },
+        {
+          "pvm": "2026-11-14",
+          "klikkaukset": 129,
+          "impressiot": 4039,
+          "ctr": 3.19386
+        },
+        {
+          "pvm": "2026-11-15",
+          "klikkaukset": 107,
+          "impressiot": 3264,
+          "ctr": 3.278186
         }
       ],
       "utm": [
@@ -515,29 +522,11 @@
       "paattyy": "2026-11-16",
       "kanavat": "facebook, instagram, threads",
       "adset_id": "120250650170100073",
-      "klikkaukset": 639,
-      "ctr": 2.684761,
-      "kulu": 145.94,
-      "impressiot": 23801,
+      "klikkaukset": 848,
+      "ctr": 2.600908,
+      "kulu": 195.56,
+      "impressiot": 32604,
       "paivittain": [
-        {
-          "pvm": "2026-11-06",
-          "klikkaukset": 90,
-          "impressiot": 2992,
-          "ctr": 3.008021
-        },
-        {
-          "pvm": "2026-11-07",
-          "klikkaukset": 89,
-          "impressiot": 3271,
-          "ctr": 2.72088
-        },
-        {
-          "pvm": "2026-11-08",
-          "klikkaukset": 73,
-          "impressiot": 2757,
-          "ctr": 2.647806
-        },
         {
           "pvm": "2026-11-09",
           "klikkaukset": 84,
@@ -559,8 +548,26 @@
         {
           "pvm": "2026-11-12",
           "klikkaukset": 78,
-          "impressiot": 2822,
-          "ctr": 2.763997
+          "impressiot": 2824,
+          "ctr": 2.76204
+        },
+        {
+          "pvm": "2026-11-13",
+          "klikkaukset": 66,
+          "impressiot": 2728,
+          "ctr": 2.419355
+        },
+        {
+          "pvm": "2026-11-14",
+          "klikkaukset": 77,
+          "impressiot": 3159,
+          "ctr": 2.43748
+        },
+        {
+          "pvm": "2026-11-15",
+          "klikkaukset": 65,
+          "impressiot": 2771,
+          "ctr": 2.345724
         }
       ],
       "utm": [
@@ -582,29 +589,11 @@
       "paattyy": "2026-11-16",
       "kanavat": "Automaattinen sijoittelu",
       "adset_id": "120250634257750073",
-      "klikkaukset": 663,
-      "ctr": 1.833822,
-      "kulu": 216.84,
-      "impressiot": 36154,
+      "klikkaukset": 864,
+      "ctr": 1.805907,
+      "kulu": 294.65,
+      "impressiot": 47843,
       "paivittain": [
-        {
-          "pvm": "2026-11-06",
-          "klikkaukset": 90,
-          "impressiot": 4427,
-          "ctr": 2.032979
-        },
-        {
-          "pvm": "2026-11-07",
-          "klikkaukset": 86,
-          "impressiot": 5139,
-          "ctr": 1.673477
-        },
-        {
-          "pvm": "2026-11-08",
-          "klikkaukset": 84,
-          "impressiot": 4579,
-          "ctr": 1.834462
-        },
         {
           "pvm": "2026-11-09",
           "klikkaukset": 86,
@@ -620,14 +609,32 @@
         {
           "pvm": "2026-11-11",
           "klikkaukset": 71,
-          "impressiot": 3674,
-          "ctr": 1.932499
+          "impressiot": 3675,
+          "ctr": 1.931973
         },
         {
           "pvm": "2026-11-12",
+          "klikkaukset": 70,
+          "impressiot": 4091,
+          "ctr": 1.711073
+        },
+        {
+          "pvm": "2026-11-13",
+          "klikkaukset": 65,
+          "impressiot": 3919,
+          "ctr": 1.658586
+        },
+        {
+          "pvm": "2026-11-14",
+          "klikkaukset": 66,
+          "impressiot": 3834,
+          "ctr": 1.72144
+        },
+        {
+          "pvm": "2026-11-15",
           "klikkaukset": 69,
-          "impressiot": 4086,
-          "ctr": 1.688693
+          "impressiot": 3897,
+          "ctr": 1.770593
         }
       ],
       "utm": [
@@ -649,29 +656,11 @@
       "paattyy": "2026-11-18",
       "kanavat": "facebook, instagram, threads",
       "adset_id": "120250636756230073",
-      "klikkaukset": 412,
-      "ctr": 1.445969,
-      "kulu": 151.59,
-      "impressiot": 28493,
+      "klikkaukset": 543,
+      "ctr": 1.410463,
+      "kulu": 209.26,
+      "impressiot": 38498,
       "paivittain": [
-        {
-          "pvm": "2026-11-06",
-          "klikkaukset": 55,
-          "impressiot": 3354,
-          "ctr": 1.639833
-        },
-        {
-          "pvm": "2026-11-07",
-          "klikkaukset": 56,
-          "impressiot": 3736,
-          "ctr": 1.498929
-        },
-        {
-          "pvm": "2026-11-08",
-          "klikkaukset": 51,
-          "impressiot": 4376,
-          "ctr": 1.165448
-        },
         {
           "pvm": "2026-11-09",
           "klikkaukset": 52,
@@ -693,8 +682,26 @@
         {
           "pvm": "2026-11-12",
           "klikkaukset": 42,
-          "impressiot": 2809,
-          "ctr": 1.495194
+          "impressiot": 2818,
+          "ctr": 1.490419
+        },
+        {
+          "pvm": "2026-11-13",
+          "klikkaukset": 54,
+          "impressiot": 3245,
+          "ctr": 1.664099
+        },
+        {
+          "pvm": "2026-11-14",
+          "klikkaukset": 42,
+          "impressiot": 3414,
+          "ctr": 1.230228
+        },
+        {
+          "pvm": "2026-11-15",
+          "klikkaukset": 32,
+          "impressiot": 3149,
+          "ctr": 1.016196
         }
       ],
       "utm": [
@@ -716,10 +723,10 @@
       "paattyy": "2026-11-19",
       "kanavat": "Automaattinen sijoittelu",
       "adset_id": "120250719784520073",
-      "klikkaukset": 151,
-      "ctr": 1.794202,
-      "kulu": 60.53,
-      "impressiot": 8416,
+      "klikkaukset": 274,
+      "ctr": 1.738138,
+      "kulu": 106.17,
+      "impressiot": 15764,
       "paivittain": [
         {
           "pvm": "2026-11-09",
@@ -742,8 +749,26 @@
         {
           "pvm": "2026-11-12",
           "klikkaukset": 40,
-          "impressiot": 2171,
-          "ctr": 1.842469
+          "impressiot": 2180,
+          "ctr": 1.834862
+        },
+        {
+          "pvm": "2026-11-13",
+          "klikkaukset": 46,
+          "impressiot": 2445,
+          "ctr": 1.881391
+        },
+        {
+          "pvm": "2026-11-14",
+          "klikkaukset": 37,
+          "impressiot": 2394,
+          "ctr": 1.54553
+        },
+        {
+          "pvm": "2026-11-15",
+          "klikkaukset": 32,
+          "impressiot": 2450,
+          "ctr": 1.306122
         }
       ],
       "utm": [
@@ -765,10 +790,10 @@
       "paattyy": "2026-11-22",
       "kanavat": "facebook, instagram",
       "adset_id": "120250719321780073",
-      "klikkaukset": 440,
-      "ctr": 3.349064,
-      "kulu": 55.96,
-      "impressiot": 13138,
+      "klikkaukset": 735,
+      "ctr": 3.135933,
+      "kulu": 104.14,
+      "impressiot": 23438,
       "paivittain": [
         {
           "pvm": "2026-11-09",
@@ -791,8 +816,26 @@
         {
           "pvm": "2026-11-12",
           "klikkaukset": 95,
-          "impressiot": 3622,
-          "ctr": 2.62286
+          "impressiot": 3625,
+          "ctr": 2.62069
+        },
+        {
+          "pvm": "2026-11-13",
+          "klikkaukset": 92,
+          "impressiot": 3238,
+          "ctr": 2.84126
+        },
+        {
+          "pvm": "2026-11-14",
+          "klikkaukset": 92,
+          "impressiot": 3144,
+          "ctr": 2.926209
+        },
+        {
+          "pvm": "2026-11-15",
+          "klikkaukset": 111,
+          "impressiot": 3870,
+          "ctr": 2.868217
         }
       ],
       "utm": [
@@ -814,10 +857,10 @@
       "paattyy": "2026-11-30",
       "kanavat": "facebook, instagram, threads",
       "adset_id": "120250721640280073",
-      "klikkaukset": 94,
-      "ctr": 2.571116,
-      "kulu": 18.44,
-      "impressiot": 3656,
+      "klikkaukset": 153,
+      "ctr": 2.380582,
+      "kulu": 33.92,
+      "impressiot": 6427,
       "paivittain": [
         {
           "pvm": "2026-11-09",
@@ -840,8 +883,26 @@
         {
           "pvm": "2026-11-12",
           "klikkaukset": 16,
-          "impressiot": 838,
-          "ctr": 1.909308
+          "impressiot": 839,
+          "ctr": 1.907032
+        },
+        {
+          "pvm": "2026-11-13",
+          "klikkaukset": 19,
+          "impressiot": 888,
+          "ctr": 2.13964
+        },
+        {
+          "pvm": "2026-11-14",
+          "klikkaukset": 23,
+          "impressiot": 885,
+          "ctr": 2.59887
+        },
+        {
+          "pvm": "2026-11-15",
+          "klikkaukset": 18,
+          "impressiot": 1011,
+          "ctr": 1.780415
         }
       ],
       "utm": [
@@ -863,29 +924,11 @@
       "paattyy": "2026-11-30",
       "kanavat": "facebook, instagram, threads",
       "adset_id": "120250634587480073",
-      "klikkaukset": 236,
-      "ctr": 1.53048,
-      "kulu": 85.41,
-      "impressiot": 15420,
+      "klikkaukset": 310,
+      "ctr": 1.496789,
+      "kulu": 116.67,
+      "impressiot": 20711,
       "paivittain": [
-        {
-          "pvm": "2026-11-06",
-          "klikkaukset": 26,
-          "impressiot": 1599,
-          "ctr": 1.626016
-        },
-        {
-          "pvm": "2026-11-07",
-          "klikkaukset": 29,
-          "impressiot": 2078,
-          "ctr": 1.395573
-        },
-        {
-          "pvm": "2026-11-08",
-          "klikkaukset": 31,
-          "impressiot": 2068,
-          "ctr": 1.499033
-        },
         {
           "pvm": "2026-11-09",
           "klikkaukset": 18,
@@ -907,8 +950,26 @@
         {
           "pvm": "2026-11-12",
           "klikkaukset": 31,
-          "impressiot": 1492,
-          "ctr": 2.077748
+          "impressiot": 1494,
+          "ctr": 2.074967
+        },
+        {
+          "pvm": "2026-11-13",
+          "klikkaukset": 24,
+          "impressiot": 1774,
+          "ctr": 1.352875
+        },
+        {
+          "pvm": "2026-11-14",
+          "klikkaukset": 27,
+          "impressiot": 1733,
+          "ctr": 1.557992
+        },
+        {
+          "pvm": "2026-11-15",
+          "klikkaukset": 23,
+          "impressiot": 1719,
+          "ctr": 1.337987
         }
       ],
       "utm": [
@@ -930,29 +991,11 @@
       "paattyy": "2026-12-02",
       "kanavat": "facebook, instagram, threads",
       "adset_id": "120250233925180073",
-      "klikkaukset": 1147,
-      "ctr": 0.454587,
-      "kulu": 240.67,
-      "impressiot": 252317,
+      "klikkaukset": 1173,
+      "ctr": 0.460694,
+      "kulu": 251.03,
+      "impressiot": 254616,
       "paivittain": [
-        {
-          "pvm": "2026-11-06",
-          "klikkaukset": 13,
-          "impressiot": 698,
-          "ctr": 1.862464
-        },
-        {
-          "pvm": "2026-11-07",
-          "klikkaukset": 11,
-          "impressiot": 653,
-          "ctr": 1.684533
-        },
-        {
-          "pvm": "2026-11-08",
-          "klikkaukset": 17,
-          "impressiot": 797,
-          "ctr": 2.132999
-        },
         {
           "pvm": "2026-11-09",
           "klikkaukset": 11,
@@ -974,8 +1017,26 @@
         {
           "pvm": "2026-11-12",
           "klikkaukset": 12,
-          "impressiot": 799,
-          "ctr": 1.501877
+          "impressiot": 800,
+          "ctr": 1.5
+        },
+        {
+          "pvm": "2026-11-13",
+          "klikkaukset": 10,
+          "impressiot": 837,
+          "ctr": 1.194743
+        },
+        {
+          "pvm": "2026-11-14",
+          "klikkaukset": 7,
+          "impressiot": 807,
+          "ctr": 0.86741
+        },
+        {
+          "pvm": "2026-11-15",
+          "klikkaukset": 9,
+          "impressiot": 664,
+          "ctr": 1.355422
         }
       ],
       "utm": [
@@ -991,39 +1052,21 @@
       "hakemus_peruste": "UTM: rekry_pth_omalaakari_varha_202610 / {{site_source_name}}-{{placement}}"
     }
   ],
-  "hakemukset_haettu": "2026-11-13T06:13:09.143519+00:00",
+  "hakemukset_haettu": "2026-11-16T06:13:26.903797+00:00",
   "google": {
-    "haettu": "2026-11-13T06:13:12.471402+00:00",
-    "jakso_alku": "2026-10-14",
-    "jakso_loppu": "2026-11-12",
+    "haettu": "2026-11-16T06:13:33.004228+00:00",
+    "jakso_alku": "2026-10-17",
+    "jakso_loppu": "2026-11-15",
     "kampanjat": [
       {
         "kampanja": "Työpaikat | Lääkäri",
         "tyyppi": "tyopaikat",
-        "kulu": 218.31,
-        "impressiot": 2810,
-        "klikkaukset": 155,
-        "ctr": 5.52,
+        "kulu": 198.54,
+        "impressiot": 2463,
+        "klikkaukset": 143,
+        "ctr": 5.81,
         "hakemukset": 2,
         "paivittain": [
-          {
-            "pvm": "2026-11-06",
-            "impressiot": 28,
-            "klikkaukset": 2,
-            "ctr": 7.14
-          },
-          {
-            "pvm": "2026-11-07",
-            "impressiot": 13,
-            "klikkaukset": 2,
-            "ctr": 15.38
-          },
-          {
-            "pvm": "2026-11-08",
-            "impressiot": 49,
-            "klikkaukset": 2,
-            "ctr": 4.08
-          },
           {
             "pvm": "2026-11-09",
             "impressiot": 50,
@@ -1047,36 +1090,36 @@
             "impressiot": 53,
             "klikkaukset": 3,
             "ctr": 5.66
+          },
+          {
+            "pvm": "2026-11-13",
+            "impressiot": 16,
+            "klikkaukset": 1,
+            "ctr": 6.25
+          },
+          {
+            "pvm": "2026-11-14",
+            "impressiot": 10,
+            "klikkaukset": 1,
+            "ctr": 10.0
+          },
+          {
+            "pvm": "2026-11-15",
+            "impressiot": 18,
+            "klikkaukset": 2,
+            "ctr": 11.11
           }
         ]
       },
       {
         "kampanja": "Brändi | Solo Health",
         "tyyppi": "brandi",
-        "kulu": 20.47,
-        "impressiot": 1255,
-        "klikkaukset": 429,
-        "ctr": 34.18,
-        "hakemukset": 7,
+        "kulu": 20.73,
+        "impressiot": 1232,
+        "klikkaukset": 430,
+        "ctr": 34.9,
+        "hakemukset": 10,
         "paivittain": [
-          {
-            "pvm": "2026-11-06",
-            "impressiot": 38,
-            "klikkaukset": 12,
-            "ctr": 31.58
-          },
-          {
-            "pvm": "2026-11-07",
-            "impressiot": 14,
-            "klikkaukset": 4,
-            "ctr": 28.57
-          },
-          {
-            "pvm": "2026-11-08",
-            "impressiot": 25,
-            "klikkaukset": 10,
-            "ctr": 40.0
-          },
           {
             "pvm": "2026-11-09",
             "impressiot": 54,
@@ -1100,11 +1143,49 @@
             "impressiot": 65,
             "klikkaukset": 23,
             "ctr": 35.38
+          },
+          {
+            "pvm": "2026-11-13",
+            "impressiot": 52,
+            "klikkaukset": 16,
+            "ctr": 30.77
+          },
+          {
+            "pvm": "2026-11-14",
+            "impressiot": 15,
+            "klikkaukset": 8,
+            "ctr": 53.33
+          },
+          {
+            "pvm": "2026-11-15",
+            "impressiot": 39,
+            "klikkaukset": 14,
+            "ctr": 35.9
           }
         ]
       }
     ]
-  }
+  },
+  "muut": [
+    {
+      "nimi": "Lääkärilehti, uutiskirjebanneri: omalääkärin työpaikat",
+      "media": "Lääkärilehden uutiskirje",
+      "utm_source": "laakarilehti",
+      "utm_campaign": "rekry_pth_omalaakari_hae-nyt_202611",
+      "utm_content": "banneri-16-11",
+      "alkaa": "2026-11-16",
+      "nayttaa_asti": "2026-12-31",
+      "hinta_eur": 1100,
+      "kohdesivu": "https://rekry.solohealth.fi/pages/omalaakariksi-koko-suomen-alueelle",
+      "jakso_loppu": "2026-11-15",
+      "istunnot": 0,
+      "kayttajat": 0,
+      "katselut": 0,
+      "cta": 0,
+      "hakemukset": 0,
+      "paivittain": []
+    }
+  ]
 }</script>
 <script>
   (function () {
@@ -1245,6 +1326,36 @@
         grid.appendChild(card);
       });
     }
+
+    // ---- Muut kampanjat (mediaostot) ----
+    (function () {
+      var m = data.muut;
+      if (!Array.isArray(m) || m.length === 0) return;
+      document.getElementById('muut-section').hidden = false;
+      var g = document.getElementById('muut-grid');
+      m.forEach(function (k) {
+        var alkanut = new Date(k.alkaa + 'T00:00:00') <= today;
+        var ist = k.istunnot || 0, hak = k.hakemukset || 0;
+        var hinta = typeof k.hinta_eur === 'number' ? k.hinta_eur : null;
+        var rows = function (lab, val) { return '<div class="meta-row"><span class="k">' + lab + '</span><span class="v">' + val + '</span></div>'; };
+        var card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = '<div class="eyebrow">' + escapeHtml(k.media || 'Mediaosto') + '</div>' +
+          '<h2>' + escapeHtml(k.nimi) + '</h2>' +
+          '<span class="badge">' + (alkanut ? 'Alkoi ' + fmtPvm(k.alkaa) : 'Alkaa ' + fmtPvm(k.alkaa)) + '</span>' +
+          rows('Käynnit urasivustolla', ist.toLocaleString('fi-FI')) +
+          rows('Kävijät', (k.kayttajat || 0).toLocaleString('fi-FI')) +
+          rows('Ilmoitusten katselut', (k.katselut || 0).toLocaleString('fi-FI')) +
+          rows('Hakemus-painikkeen klikit', (k.cta || 0).toLocaleString('fi-FI')) +
+          rows('Hakemukset', hak.toLocaleString('fi-FI')) +
+          '<div class="sub">GA4:n kirjaamat, alaraja. Tapahtumailmoitukset poistettu.</div>' +
+          rows('Käynnistä hakemukseen', ist > 0 ? (hak / ist * 100).toLocaleString('fi-FI', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %' : '–') +
+          (hinta !== null ? rows('Mediaostohinta', fmtEur(hinta)) + rows('Hinta / käynti', ist > 0 ? fmtEur(hinta / ist) : '–') +
+            rows('Hinta / hakemus', hak >= 3 ? fmtEur(hinta / hak) : (hak > 0 ? '– (alle 3)' : '–')) : '') +
+          (alkanut && ist === 0 ? '<div class="sub">Ei vielä käyntejä. Jos kirje on jo lähtenyt, tarkista linkin UTM-tunnisteet.</div>' : '');
+        g.appendChild(card);
+      });
+    })();
 
     // ---- Google-mainonta (Solo Health -tili) ----
     (function renderGoogle() {
